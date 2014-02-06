@@ -1,4 +1,4 @@
-lab4
+planStanford
 ====
 
-Lab 4: Programming with Javascript
+CS147 Project

@@ -1,23 +1,18 @@
+var data = require('../data.json');
 
 
 exports.viewProject = function(req, res) { 
   // controller code goes here 
   var name = req.params.name;
   console.log("The project name is: " + name);
-  res.render('project', 
-  {
-    'projectName': name,
-  	'majors' : [
-    {
-      'major' : 'Computer Science',
-      'tracks' : ['Artificial Intelligence','Systems','Human Computer Interaction']
-    },
-    {
-      'major' : 'Electrical Engineering',
-      'tracks' : ['Computer Software', 'Signals and Systems', 'Circuits']
-    }
-  ]});
+  tracks = data[name]["tracks"];
+  console.log(tracks);
+  res.render('major', {
+    "tracks" : tracks,
+    'major' : name
+  });
 };
+
 
 exports.viewTrack = function(req,res){
 	var name = req.params.name;
@@ -27,18 +22,14 @@ exports.viewTrack = function(req,res){
 	});
 };
 
-
-exports.view = function(req, res){
-	res.render('project', {
-    'majors' : [
-    {
-      'major' : 'Computer Science',
-      'tracks' : ['Artificial Intelligence','Systems','Human Computer Interaction']
-    },
-    {
-      'major' : 'Electrical Engineering',
-      'tracks' : ['Computer Software', 'Signals and Systems', 'Circuits']
-    }
-  ]  
-  });
+exports.viewReq = function(req, res) { 
+  res.render('unireq');
 };
+
+exports.viewTrack = function(req, res) { 
+  var name = req.params.name;
+  var track = req.params.track;
+  classes = data['classes']
+  res.render('inprogress',{"classes" : classes});
+};
+

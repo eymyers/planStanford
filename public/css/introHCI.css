@@ -37,3 +37,8 @@
 .jumbotron h1 {
      color: #E32636;
 }
+
+
+.fixedWidth {
+    width: 300px !important;
+}

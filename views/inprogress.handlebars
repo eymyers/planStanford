@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/css/introHCI.css" rel="stylesheet">
+    <link href="/css/track.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/track.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,9 +27,25 @@
   <body>
 	<!-- this is a comment in HTML -->
 	<div class="container">
+
 		<div class="jumbotron">
   			<h1>Page in Progress</h1>
 		</div>
+
+  <div>
+    {{#each classes}}
+      <i class="fa fa-square-o fa-3x test" id="{{this}}"></i>
+    {{/each}}
+  </div>
+
+
+<div>
+  {{#each classes}}
+    <button type="button" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-star test" id="{{this}}">{{this}}</span>
+    </button>
+  {{/each}}
+</div>
 
     <p><a href="/index">Back &raquo;</a></p>
 

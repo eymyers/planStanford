@@ -14,9 +14,6 @@ var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
 var project = require('./routes/project');
-var unireq = require('./routes/unireq');
-var track = require('./routes/track')
-
 
 var app = express();
 
@@ -24,8 +21,8 @@ var app = express();
 app.get('/', index.view);
 app.get('/index',index.view)
 app.get('/project/:name', project.viewProject);
-app.get('/university_requirements',unireq.viewReq)
-app.get('/project/:name/:track', track.viewTrack);
+app.get('/university_requirements',project.viewReq)
+app.get('/project/:name/:track', project.viewTrack);
 
 
 // all environments

@@ -44,7 +44,7 @@ exports.viewSpecificRequirement = function(req,res){
   var specificRequirement = req.params.specificRequirement;
   console.log(specificRequirement);
   if(specificRequirement != "University" && specificRequirement != "Major"){
-    res.render('home');
+    res.render('home'); 
   }
   var requirements = data['requirements'][specificRequirement][uniYear];
   console.log(requirements);
@@ -55,9 +55,10 @@ exports.viewSpecificRequirement = function(req,res){
 }
 
 exports.viewCategory = function(req,res){
+  var uniYear = "2014";
   var category = req.params.requirementCategory;
   var specificRequirement = req.params.specificRequirement;
-  var requirements = data['requirements'][specificRequirement];
+  var requirements = data['requirements'][specificRequirement][uniYear];
   //console.log(requirements);
   var classes;
 

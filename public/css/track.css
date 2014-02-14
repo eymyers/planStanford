@@ -1,3 +1,17 @@
 .iconClicked{
 	background-color: #deebf7;
 }
+
+.bottom_left{
+	position:absolute;
+	width: 70px !important;
+	bottom:5px;
+	left:5px;
+}
+
+.bottom_right{
+	position:absolute;
+	width: 70px !important;
+	bottom:5px;
+	right:5px;
+}

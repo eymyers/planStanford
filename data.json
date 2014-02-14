@@ -9,6 +9,54 @@
       "tracks" : ["Computer Software", "Signals and Systems", "Circuits"]
     },
 
-    "classes" : [1,2,3,4,5,6,7,9,10]
+    "classes" : [1,2,3,4,5,6,7,9,10],
   
+  	"requirements" : {
+  		"University" : {
+  			"2014" : [
+	  			{
+	  				"name" : "IHUM",
+	  				"classes" : ["IHUM1","IHUM2", "IHUM3", "IHUM4", "IHUM5", "IHUM6", "IHUM7", "IHUM8"]
+	  			},
+	  			{
+	  				"name" : "Discplinary Breadth",
+	  				"classes" : ["Ethan", "Myers"]
+	  			},
+	  			{
+	  				"name" : "Education for Citizenship",
+	  				"classes" : ["Kennan","Dope"]
+	  			}
+	  		]
+	  	},
+  		"Major" : {
+  			"2014" : [
+
+	  			{
+	  				"name" : "Math",
+	  				"classes" : ["Math41","Math42"]
+	  			},{
+					"name" : "Science",
+					"classes" : ["Phys41", "Phys42"]
+				},{ 
+					"name" : "TIS",
+					"classes" : ["TIS1","TIS2"]
+				},{  
+					"name" : "Engineering Fundamental",
+					"classes" : ["Fund1","Fund2"]
+				},{
+					"name" : "WIM",
+					"classes" : ["WIM1","WIM2"]
+				},{
+					"name" : "Core",
+					"classes" : ["Core1","Core2"]
+				},{
+					"name" : "Speciality",
+					"classes" : ["S1","S2"]
+				},{
+					"name" : "Capstone",
+					"classes" : ["Cap1","Cap2"]
+				}
+			]
+		}
+  	}
 }

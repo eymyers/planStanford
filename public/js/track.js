@@ -13,5 +13,6 @@ function initializePage(){
 		console.log("Icon clicked");
 		console.log(".test #" + this.id);
 		$("#" + this.id).toggleClass("iconClicked");
+		$(".button #" + this.id).toggleClass("btn-danger");
 	});
 }

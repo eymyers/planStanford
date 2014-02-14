@@ -27,7 +27,6 @@
   <body>
 	<!-- this is a comment in HTML -->
 	<div class="container">
-
 		<div class="jumbotron">
   			<h1>Page in Progress</h1>
 		</div>
@@ -39,21 +38,13 @@
   </div>
 
 
-<div class="button">
+<div>
   {{#each classes}}
-    <button type="button" class="btn btn-default btn-md test" id="{{this}}">
-      <span class="glyphicon glyphicon-star test">{{this}}</span>
+    <button type="button" class="btn btn-default btn-md">
+      <span class="glyphicon glyphicon-star test" id="{{this}}">CS<br>147</span>
     </button>
   {{/each}}
 </div>
-
-<div class="button">
-  {{#each classes}}
-  <button type="button" class="btn btn-default btm-md test" id="{{this}}">
-    {{this}}
-  </button>
-  {{/each}}
-<div>
 
     <p><a href="/index">Back &raquo;</a></p>
 

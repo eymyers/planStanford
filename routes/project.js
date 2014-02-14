@@ -33,3 +33,44 @@ exports.viewTrack = function(req, res) { 
   res.render('inprogress',{"classes" : classes});
 };
 
+exports.viewSpecificRequirement = function(req,res){
+  // Don't know why the fuck this doesn't work
+  // req.session.universityYear = "2014";
+  // if(req.session.universityYear){
+  //   uniYear = req.session.universityYear;
+  // }
+  var uniYear = "2014";
+  console.log(uniYear);
+  var specificRequirement = req.params.specificRequirement;
+  console.log(specificRequirement);
+  if(specificRequirement != "University" && specificRequirement != "Major"){
+    res.render('home');
+  }
+  var requirements = data['requirements'][specificRequirement][uniYear];
+  console.log(requirements);
+  res.render('requirements',{
+    "name" : specificRequirement,
+    "requirements" : requirements
+  });
+}
+
+exports.viewCategory = function(req,res){
+  var category = req.params.requirementCategory;
+  var specificRequirement = req.params.specificRequirement;
+  var requirements = data['requirements'][specificRequirement];
+  //console.log(requirements);
+  var classes;
+
+  for(var i=0; i< requirements.length; i++){
+    var obj = requirements[i];
+    if(obj.name == category){
+      classes = obj.classes;
+    }
+  }
+
+  res.render("category",{
+    "requirement" : specificRequirement, 
+    "category" : category, 
+    "classes" : classes
+  });
+}

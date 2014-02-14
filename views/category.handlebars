@@ -29,33 +29,31 @@
 	<div class="container">
 
 		<div class="jumbotron">
-  			<h1>Page in Progress</h1>
+  			<h1>{{requirement}} : {{category}}</h1>
 		</div>
 
-  <div>
-    {{#each classes}}
-      <i class="fa fa-square-o fa-3x test" id="{{this}}"></i>
-    {{/each}}
-  </div>
-
-
 <div class="button">
   {{#each classes}}
-    <button type="button" class="btn btn-default btn-md test" id="{{this}}">
-      <span class="glyphicon glyphicon-star test">{{this}}</span>
-    </button>
-  {{/each}}
-</div>
-
-<div class="button">
-  {{#each classes}}
-  <button type="button" class="btn btn-default btm-md test" id="{{this}}">
+  <button type="button" class="btn btn-default btn-md test" id="{{this}}">
     {{this}}
   </button>
   {{/each}}
 <div>
 
-    <p><a href="/index">Back &raquo;</a></p>
+<div>
+  <a href="../{{requirement}}">
+    <button type="button" class="btn btn-info btn-sm bottom_left">
+      Cancel
+    </button>
+  </a>
+
+  <a href="../{{requirement}}">
+    <button type="button" class="btn btn-success btn-sm bottom_right">
+      Save
+    </button>
+  </a>
+
+</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>

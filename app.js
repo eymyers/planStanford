@@ -19,10 +19,12 @@ var app = express();
 
 // Add routes here
 app.get('/', index.view);
-app.get('/index',index.view)
+app.get('/index',index.view);
 app.get('/project/:name', project.viewProject);
-app.get('/university_requirements',project.viewReq)
+app.get('/university_requirements',project.viewReq);
 app.get('/project/:name/:track', project.viewTrack);
+app.get('/requirement/:specificRequirement',project.viewSpecificRequirement);
+app.get('/requirement/:specificRequirement/:requirementCategory',project.viewCategory);
 
 
 // all environments

@@ -8,7 +8,7 @@
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/introHCI.css" rel="stylesheet">
-	<!-- this is a comment in HTML -->
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,6 +19,27 @@
 </head>
 
 <body>
+
+	
+	
+
+
+
+	<div class="dropdown">
+  			<button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+  				Dropdown
+  				<span class="caret"></span>
+  			</button>
+  			
+  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+	    		<li role="presentation" class="divider"></li>
+	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  			</ul>
+	</div>
+
 	<div class="container">
 		<!-- h1 through h6 are headers. The higher the number, the smaller the header -->
 		<!-- p means paragraph -->
@@ -27,22 +48,58 @@
 			<p>Input your classes and find out what you have left to do.</p>
 		</div>
 
-		<h4>University Requirements</h4>
-		<div class="university">
+
+
+		<h3>University Requirements</h3>
+		<h6>Select Class Year</h6>
+		<select class="form-control" id="classfield">
+			<option value ="0" selected='sel'>-- Select Class Year --</option>
+		    <option value="2014">2014</option>
+		    <option value="2015">2015</option>
+		    <option value="2016">2016</option>
+		    <option value="2017">2017</option>
+		</select>
+		<button type="button" class="btn btn-primary" id="classButton">
+  		<span ></span> Go
+		</button>
+
+		
+
+		<h3>Major Requirements</h3>
+		<h6>Select Major</h6>
+		<select class="form-control", id="majorfield">
+			<option value ="0" selected='sel'>-- Select Major --</option>
+			{{#each majors}}
+				<option value={{this}}>{{this}}</option>
+			{{/each}}
+		</select>
+		<h6 id="trackTitle">Select Concentration</h6>
+		<select class="form-control", id="trackfield">
+			<option value ="0" selected='sel'>-- Select Track --</option>
+			{{#each tracks}}
+				<option value="track">{{this}}</option>
+			{{/each}}
+		</select>
+		<button type="button" class="btn btn-primary" id="majorButton">
+  		<span ></span> Go
+		</button>
+
+		
+		<!-- <div class="university">
 			<a href="university_requirements">
 				<p>Class of 2014</p>
 			</a>
-			</div>
+			</div> -->
 
-		<h4>Majors</h4>
-		{{#each majors}}
-		<div class="major">
+		
+		
+		<!-- <div class="major">
 			<a href="project/{{this}}" class="thumbnail">
-				<!-- <img src="images/{{image}}" class="img"> -->
+				<img src="images/{{image}}" class="img">
 				<p>{{this}}</p>
 			</a>
-		</div>
-		{{/each}}
+		</div> -->
+		
 
 		<!-- <h4>Majors</h4> -->
 		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
@@ -61,5 +118,6 @@
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/introHCI.js"></script>
 </body>
 </html>

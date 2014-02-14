@@ -42,3 +42,18 @@
 .fixedWidth {
     width: 300px !important;
 }
+
+#trackTitle{
+     visibility: hidden;
+}
+
+#trackfield {
+     visibility: hidden;
+}
+
+#majorButton {
+     visibility: hidden;
+}
+#classButton {
+     visibility: hidden;
+}

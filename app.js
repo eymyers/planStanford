@@ -6,7 +6,8 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
+var handlebars = require('express3-handlebars');
+
 
 // var index = require('./routes/index');
 // Example route
@@ -14,15 +15,18 @@ var handlebars = require('express3-handlebars')
 
 var index = require('./routes/index');
 var project = require('./routes/project');
-
+var major = require('./routes/major');
+var login = require('./routes/login');
 var app = express();
 
 // Add routes here
-app.get('/', index.view);
+app.get('/', login.view);
 app.get('/index',index.view)
 app.get('/project/:name', project.viewProject);
-app.get('/university_requirements',project.viewReq)
+app.get('/university_requirements',project.viewReq);
 app.get('/project/:name/:track', project.viewTrack);
+app.get('/major/:major', major.listTracks);
+app.get('/login', login.view);
 
 
 // all environments

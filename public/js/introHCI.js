@@ -13,7 +13,7 @@ function initializePage() {
 	// add any functionality and listeners you want here
 	$('#classfield').change(toggleUniReqButton);
 	$('#majorfield').change(toggleConcentrationField);
-	$('#textfield').change(toggleConcentrationButton);
+	$('#trackfield').change(toggleConcentrationButton);
 	
 	$(".test").click(function(){
 		console.log("Changing class");
@@ -62,15 +62,41 @@ function toggleUniReqButton() {
 // Toggles visibility of Select Concentration Dropdown
 function toggleConcentrationField() {
 	console.log("Reached toggleConcentrationField");
+	document.getElementById('trackfield').innerHTML='';
 	var maj = document.getElementById('majorfield').value;
+	
 	console.log("major" + maj);
 	if(maj === "0") {
 		document.getElementById('trackTitle').style.visibility="hidden";
 		document.getElementById('trackfield').style.visibility="hidden";
+
 	} else {
+		$.get("/major/" + maj, populateConcentration);
+		console.log("/major/" + maj);
 		document.getElementById('trackTitle').style.visibility="visible";
-		document.getElementById('trackfield').style.visibility="visible";	
+		document.getElementById('trackfield').style.visibility="visible";
+		document.getElementById('majorButton').style.visibility="hidden";	
 	}
+}
+
+function populateConcentration(result) {
+	console.log(result.length);
+	var dropdown = document.getElementById('trackfield');
+	var el1 = document.createElement("option");
+	el1.textContent = "-- Select Track --";
+	el1.value = '0';
+	dropdown.appendChild(el1);
+	for(var i = 0; i < result.length; i++) {
+		var el = document.createElement("option");
+        el.textContent = result[i];
+        el.value = result[i];
+        dropdown.appendChild(el);
+	}
+	// .style.visibility="visible";
+	
+	// {{#each tracks}}
+	// 	<option value="track">{{this}}</option>
+	// {{/each}}
 }
 
 // Toggles visibility of Button under Major Requirements

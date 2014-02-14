@@ -20,11 +20,6 @@
 
 <body>
 
-	
-	
-
-
-
 	<div class="dropdown">
   			<button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
   				Dropdown
@@ -41,8 +36,6 @@
 	</div>
 
 	<div class="container">
-		<!-- h1 through h6 are headers. The higher the number, the smaller the header -->
-		<!-- p means paragraph -->
 		<div class="jumbotron">
 			<h1>PlanStanford</h1>
 			<p>Input your classes and find out what you have left to do.</p>
@@ -59,9 +52,9 @@
 		    <option value="2016">2016</option>
 		    <option value="2017">2017</option>
 		</select>
-		<button type="button" class="btn btn-primary" id="classButton">
+		<a type="button" class="btn btn-primary" id="classButton" href="/requirement/University">
   		<span ></span> Go
-		</button>
+		</a>
 
 		
 
@@ -70,7 +63,7 @@
 		<select class="form-control", id="majorfield">
 			<option value ="0" selected='sel'>-- Select Major --</option>
 			{{#each majors}}
-				<option value={{this}}>{{this}}</option>
+				<option value="{{this}}">{{this}}</option>
 			{{/each}}
 		</select>
 		<h6 id="trackTitle">Select Concentration</h6>
@@ -80,9 +73,9 @@
 				<option value="track">{{this}}</option>
 			{{/each}}
 		</select>
-		<button type="button" class="btn btn-primary" id="majorButton">
+		<a type="button" class="btn btn-primary" id="majorButton" href="requirement/Major">
   		<span ></span> Go
-		</button>
+		</a>
 
 		
 		<!-- <div class="university">
@@ -90,9 +83,7 @@
 				<p>Class of 2014</p>
 			</a>
 			</div> -->
-
-		
-		
+			
 		<!-- <div class="major">
 			<a href="project/{{this}}" class="thumbnail">
 				<img src="images/{{image}}" class="img">

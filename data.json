@@ -38,13 +38,13 @@
 					"name" : "Science",
 					"classes" : ["Phys41", "Phys42"]
 				},{ 
-					"name" : "TIS",
+					"name" : "Technology in Society",
 					"classes" : ["TIS1","TIS2"]
 				},{  
 					"name" : "Engineering Fundamental",
 					"classes" : ["Fund1","Fund2"]
 				},{
-					"name" : "WIM",
+					"name" : "Writing in the Major",
 					"classes" : ["WIM1","WIM2"]
 				},{
 					"name" : "Core",

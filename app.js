@@ -29,8 +29,6 @@ app.get('/requirement/:specificRequirement',project.viewSpecificRequirement);
 app.get('/requirement/:specificRequirement/:requirementCategory',project.viewCategory);
 app.get('/major/:major', major.listTracks);
 
-
-
 // all environments
 app.set('port', process.env.PORT || 3100);
 app.set('views', path.join(__dirname, 'views'));

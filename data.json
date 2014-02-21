@@ -16,15 +16,15 @@
   			"2014" : [
 	  			{
 	  				"name" : "IHUM",
-	  				"classes" : ["IHUM1","IHUM2", "IHUM3", "IHUM4", "IHUM5", "IHUM6", "IHUM7", "IHUM8"]
+	  				"classes" : ["IHUM1","IHUM2", "IHUM3"]
 	  			},
 	  			{
 	  				"name" : "Discplinary Breadth",
-	  				"classes" : ["Ethan", "Myers"]
+	  				"classes" : ["NatSci", "ENGR","Hum","SocSci","Math"]
 	  			},
 	  			{
 	  				"name" : "Education for Citizenship",
-	  				"classes" : ["Kennan","Dope"]
+	  				"classes" : ["Gender","GlobalComm","EthicReas","AmerCultur"]
 	  			}
 	  		]
 	  	},
@@ -33,28 +33,28 @@
 
 	  			{
 	  				"name" : "Math",
-	  				"classes" : ["Math41","Math42"]
+	  				"classes" : ["Math41","Math42","Math51","Math52","Math53","CME100","CME102"]
 	  			},{
 					"name" : "Science",
-					"classes" : ["Phys41", "Phys42"]
+					"classes" : ["Phys41", "Phys43","Phys45"]
 				},{ 
 					"name" : "Technology in Society",
 					"classes" : ["TIS1","TIS2"]
 				},{  
 					"name" : "Engineering Fundamental",
-					"classes" : ["Fund1","Fund2"]
+					"classes" : ["ENGR40","ENGR50","CS106B","ENGR14"]
 				},{
 					"name" : "Writing in the Major",
 					"classes" : ["WIM1","WIM2"]
 				},{
 					"name" : "Core",
-					"classes" : ["Core1","Core2"]
+					"classes" : ["CS107","Core2"]
 				},{
 					"name" : "Speciality",
 					"classes" : ["S1","S2"]
 				},{
 					"name" : "Capstone",
-					"classes" : ["Cap1","Cap2"]
+					"classes" : ["Research","Project"]
 				}
 			]
 		}

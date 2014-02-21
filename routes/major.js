@@ -21,11 +21,12 @@ exports.saveClasses = function(req,res){
 exports.getClasses = function(req,res){
 	console.log(JSON.stringify(req.query));
 	var category = req.query.category;
+	var specificRequirement = req.session.current_specificRequirement;
 	console.log(category);
 	if(category){
 		var classes = null;
 		try{
-			classes = req.session.current_classes[category];
+			classes = req.session.current_classes[specificRequirement][category];
 		}
 		catch(err){
 			console.log(err);

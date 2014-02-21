@@ -9,7 +9,13 @@
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/requirements.css" rel="stylesheet">
 	<link href="/css/introHCI.css" rel="stylesheet">
-    
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/summary2.js"></script>
+
 </head>
 
 <body>
@@ -45,7 +51,11 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <div id="university-chart" style="width: 900px; height: 500px;">
+
+    <!-- <div id="test-chart" style="width: 900px; height: 500px;">
+    </div> -->
+
+<div id="university-chart" style="width: 900px; height: 500px;">
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
@@ -72,6 +82,7 @@
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
+        
         var data = google.visualization.arrayToDataTable([
           ['Courses', 'Completed', 'Required'],
           ['Math',  3,      4],
@@ -83,6 +94,10 @@
           ['Speciality',  2,      4],
           ['Capstone',  0,       1]
         ]);
+        
+        //console.log("On summary page");
+        //console.log(structuredDataForGraph);
+        //var data = google.visualization.arrayToDataTable(structuredDataForGraph);
 
         var options = {
           title: 'Major Requirements',

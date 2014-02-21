@@ -54,6 +54,7 @@ app.get('/major/:major', major.listTracks);
 app.get('/user_login',login.login);
 app.post('/save_classes',major.saveClasses);
 app.get('/get_classes',major.getClasses);
+app.get('/get_all_classes',summary.getAllClasses);
 app.get('/summary', summary.view);
 
 http.createServer(app).listen(app.get('port'), function(){

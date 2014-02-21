@@ -38,6 +38,11 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>PlanStanford</h1>
+			{{#if username}}
+				<h2>{{username}}</h2>
+			{{else}}
+				<h2>No username</h2>
+			{{/if}}
 			<p>Input your classes and find out what you have left to do.</p>
 		</div>
 

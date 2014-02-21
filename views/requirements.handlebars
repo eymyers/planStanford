@@ -26,6 +26,16 @@
 		</div>
 	</div>
 	
+	{{#if classes}}
+	<div>
+	  <h2>Current Classes Selected</h2>
+	  <p>
+	    {{#each classes}}
+	    {{this}}
+	    {{/each}}
+	  </p>
+	{{/if}}
+
 	<div class ="center-class">
 		{{#each requirements}}
 		<a href = "{{../name}}/{{this.name}}">

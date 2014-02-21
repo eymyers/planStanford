@@ -39,39 +39,67 @@ exports.viewSpecificRequirement = function(req,res){
   // if(req.session.universityYear){
   //   uniYear = req.session.universityYear;
   // }
+
+  // req.session.current_classes = ["WTF"];
+  var current_classes = req.session.current_classes;
+  if(req.session.current_classes){
+    console.log("It thinks there are current_classes in the session.");
+    console.log(req.session.current_classes);
+  }
+  else{
+    console.log("no classes");  
+  }
+
   var uniYear = "2014";
-  console.log(uniYear);
+  //console.log(uniYear);
   var specificRequirement = req.params.specificRequirement;
-  console.log(specificRequirement);
+  //console.log(specificRequirement);
   if(specificRequirement != "University" && specificRequirement != "Major"){
     res.render('home'); 
   }
   var requirements = data['requirements'][specificRequirement][uniYear];
-  console.log(requirements);
+  //console.log(requirements);
   res.render('requirements',{
     "name" : specificRequirement,
-    "requirements" : requirements
+    "requirements" : requirements,
+    "classes" : current_classes
   });
 }
 
 exports.viewCategory = function(req,res){
+
   var uniYear = "2014";
   var category = req.params.requirementCategory;
   var specificRequirement = req.params.specificRequirement;
   var requirements = data['requirements'][specificRequirement][uniYear];
   //console.log(requirements);
-  var classes;
+  req.session.current_category = category;
+  req.session.current_specificRequirement = specificRequirement;
+
+  var classes_in_category;
 
   for(var i=0; i< requirements.length; i++){
     var obj = requirements[i];
     if(obj.name == category){
-      classes = obj.classes;
+      classes_in_category = obj.classes;
     }
   }
+
+  var current_classes = null;
+  try{
+    current_classes = req.session.current_classes[category];
+    console.log("in view category");
+    console.log(current_classes);
+  }catch(err){
+    console.log(err)
+    console.log("Not classes in that category");
+  }
+
 
   res.render("category",{
     "requirement" : specificRequirement, 
     "category" : category, 
-    "classes" : classes
+    "classes" : classes_in_category,
+    "current_classes" : current_classes
   });
 }

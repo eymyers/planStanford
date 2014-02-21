@@ -19,15 +19,7 @@ var major = require('./routes/major');
 var login = require('./routes/login');
 var app = express();
 
-// Add routes here
-app.get('/', login.view);
-app.get('/index',index.view);
-app.get('/project/:name', project.viewProject);
-app.get('/university_requirements',project.viewReq);
-app.get('/project/:name/:track', project.viewTrack);
-app.get('/requirement/:specificRequirement',project.viewSpecificRequirement);
-app.get('/requirement/:specificRequirement/:requirementCategory',project.viewCategory);
-app.get('/major/:major', major.listTracks);
+
 
 // all environments
 app.set('port', process.env.PORT || 3100);
@@ -50,9 +42,17 @@ if ('development' == app.get('env')) {
 }
 
 // Add routes here
-// app.get('/', index.view);
-// Example route
-// app.get('/users', user.list);
+app.get('/', login.view);
+app.get('/index',index.view);
+app.get('/project/:name', project.viewProject);
+app.get('/university_requirements',project.viewReq);
+app.get('/project/:name/:track', project.viewTrack);
+app.get('/requirement/:specificRequirement',project.viewSpecificRequirement);
+app.get('/requirement/:specificRequirement/:requirementCategory',project.viewCategory);
+app.get('/major/:major', major.listTracks);
+app.get('/user_login',login.login);
+app.post('/save_classes',major.saveClasses);
+app.get('/get_classes',major.getClasses);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

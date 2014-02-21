@@ -34,11 +34,12 @@
 
 <div class="button">
   {{#each classes}}
-  <button type="button" class="btn btn-default btn-md test" id="{{this}}">
+  <button type="button" class="btn btn-default btn-md class" id="{{this}}" name="{{../category}}">
     {{this}}
   </button>
   {{/each}}
 <div>
+
 
 <div>
   <a href="../{{requirement}}">
@@ -46,13 +47,20 @@
       Cancel
     </button>
   </a>
+</div>
 
+<div class="save_button">
+    <button type="button" class="btn btn-success btn-sm">
+      Save2
+    </button>
+</div>
+
+<div class="save_button">
   <a href="../{{requirement}}">
     <button type="button" class="btn btn-success btn-sm bottom_right">
       Save
     </button>
   </a>
-
 </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

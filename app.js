@@ -17,8 +17,8 @@ var index = require('./routes/index');
 var project = require('./routes/project');
 var major = require('./routes/major');
 var login = require('./routes/login');
+var summary = require('./routes/summary')
 var app = express();
-
 
 
 // all environments
@@ -42,6 +42,7 @@ if ('development' == app.get('env')) {
 }
 
 // Add routes here
+
 app.get('/', login.view);
 app.get('/index',index.view);
 app.get('/project/:name', project.viewProject);
@@ -53,6 +54,7 @@ app.get('/major/:major', major.listTracks);
 app.get('/user_login',login.login);
 app.post('/save_classes',major.saveClasses);
 app.get('/get_classes',major.getClasses);
+app.get('/summary', summary.view);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

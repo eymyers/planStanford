@@ -17,20 +17,8 @@ var index = require('./routes/index');
 var project = require('./routes/project');
 var major = require('./routes/major');
 var login = require('./routes/login');
+var summary = require('./routes/summary')
 var app = express();
-
-// Add routes here
-app.get('/', login.view);
-app.get('/index',index.view);
-app.get('/project/:name', project.viewProject);
-app.get('/university_requirements',project.viewReq);
-app.get('/project/:name/:track', project.viewTrack);
-app.get('/requirement/:specificRequirement',project.viewSpecificRequirement);
-app.get('/requirement/:specificRequirement/:requirementCategory',project.viewCategory);
-app.get('/major/:major', major.listTracks);
-
-
-
 
 // all environments
 app.set('port', process.env.PORT || 3100);
@@ -53,9 +41,17 @@ if ('development' == app.get('env')) {
 }
 
 // Add routes here
-// app.get('/', index.view);
-// Example route
-// app.get('/users', user.list);
+// Add routes here
+app.get('/', login.view);
+app.get('/index',index.view);
+app.get('/project/:name', project.viewProject);
+app.get('/university_requirements',project.viewReq);
+app.get('/project/:name/:track', project.viewTrack);
+app.get('/requirement/:specificRequirement',project.viewSpecificRequirement);
+app.get('/requirement/:specificRequirement/:requirementCategory',project.viewCategory);
+app.get('/major/:major', major.listTracks);
+app.get('/summary', summary.view);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

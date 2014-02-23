@@ -13,9 +13,10 @@ var handlebars = require('express3-handlebars');
 // Example route
 // var user = require('./routes/user');
 
-var index = require('./routes/index');
-var project = require('./routes/project');
-var major = require('./routes/major');
+var home = require('./routes/home');
+var requirement = require('./routes/requirement');
+var category = require('./routes/category');
+var data_functions = require('./routes/data_functions');
 var login = require('./routes/login');
 var summary = require('./routes/summary')
 var app = express();
@@ -43,19 +44,21 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 
-app.get('/', login.view);
-app.get('/index',index.view);
-app.get('/project/:name', project.viewProject);
-app.get('/university_requirements',project.viewReq);
-app.get('/project/:name/:track', project.viewTrack);
-app.get('/requirement/:specificRequirement',project.viewSpecificRequirement);
-app.get('/requirement/:specificRequirement/:requirementCategory',project.viewCategory);
-app.get('/major/:major', major.listTracks);
-app.get('/user_login',login.login);
-app.post('/save_classes',major.saveClasses);
-app.get('/get_classes',major.getClasses);
-app.get('/get_all_classes',summary.getAllClasses);
+// Webpages
+app.get('/', login.viewLogin);
+app.get('/home',home.viewHome);
+app.get('/requirement/:requirement',requirement.viewRequirement);
+app.get('/requirement/:requirement/:category',category.viewCategory);
 app.get('/summary', summary.view);
+app.get('/debug',home.debug);
+
+// Functions to get data
+app.get('/major/:major', data_functions.listTracks);
+app.get('/user_login',login.login);
+app.post('/save_classes',data_functions.saveClasses);
+app.get('/get_classes',data_functions.getClasses);
+app.get('/get_all_classes',summary.getAllClasses);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

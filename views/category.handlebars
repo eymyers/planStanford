@@ -7,15 +7,15 @@
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="/css/introHCI.css" rel="stylesheet">
-    <link href="/css/track.css" rel="stylesheet">
+    <link href="/css/jumbotron.css" rel="stylesheet">
+    <link href="/css/icon_positioning.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/track.js"></script>
+    <script src="/js/categoryW.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,9 +34,34 @@
 
 <div class="button">
   {{#each classes}}
-  <button type="button" class="btn btn-default btn-md class" id="{{this}}" name="{{../category}}">
+  <button type="button" class="btn btn-default btn-md class largeButton" id="{{this}}" data-toggle="modal" data-target="{{this}}-modal">
     {{this}}
   </button>
+
+  <!-- Button trigger modal -->
+  <button class="btn btn-default thinButton" data-toggle="modal" data-target="#{{this}}-modal">
+    More
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="{{this}}-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">{{this}}</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   {{/each}}
 <div>
 
@@ -63,9 +88,6 @@
   </a>
 </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/js/bootstrap.min.js"></script>
+
   </body>
 </html>

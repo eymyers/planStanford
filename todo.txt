@@ -1,0 +1,13 @@
+summary - kennan
+
+login - ethan
+    use passport
+
+database - ethan
+    setup mongodb and mongoose on local system
+
+populate course popup - ethan
+
+search explore courses
+
+style everything

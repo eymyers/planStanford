@@ -7,7 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/css/introHCI.css" rel="stylesheet">
+	<link href="/css/jumbotron.css" rel="stylesheet">
+	<link href="/css/home.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -15,7 +16,12 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->        
+    <![endif]-->   
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/homeW.js"></script> 
+
 </head>
 
 <body>
@@ -67,14 +73,14 @@
 		<h6>Select Major</h6>
 		<select class="form-control", id="majorfield">
 			<option value ="0" selected='sel'>-- Select Major --</option>
-			{{#each majors}}
+			{{#each data.majors}}
 				<option value="{{this}}">{{this}}</option>
 			{{/each}}
 		</select>
 		<h6 id="trackTitle">Select Concentration</h6>
 		<select class="form-control", id="trackfield">
 			<option value ="0" selected='sel'>-- Select Track --</option>
-			{{#each tracks}}
+			{{#each data.tracks}}
 				<option value="track">{{this}}</option>
 			{{/each}}
 		</select>
@@ -112,8 +118,6 @@
 		
 	</div>
 
-	<script src="https://code.jquery.com/jquery.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/introHCI.js"></script>
+
 </body>
 </html>

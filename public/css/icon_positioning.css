@@ -17,11 +17,15 @@
 }
 
 .largeButton {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 65px;
 }
 
 .thinButton {
-	width: 100px;
-	height: 25px;
+	width: 90px;
+	height: 35px;
+}
+
+.padding {
+	margin-bottom: 10px;
 }

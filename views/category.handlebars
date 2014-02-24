@@ -24,46 +24,74 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
+
   <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">TrackStanford</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/requirement/University">University</a></li>
+            <li><a href="/requirement/Major">Major</a></li>
+            <li><a href="/summary">Summary</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
 	<!-- this is a comment in HTML -->
 	<div class="container">
-
 		<div class="jumbotron">
   			<h1>{{requirement}} : {{category}}</h1>
 		</div>
 
-<div class="button">
-  {{#each classes}}
-  <button type="button" class="btn btn-default btn-md class largeButton" id="{{this}}" data-toggle="modal" data-target="{{this}}-modal">
-    {{this}}
-  </button>
-
-  <!-- Button trigger modal -->
-  <button class="btn btn-default thinButton" data-toggle="modal" data-target="#{{this}}-modal">
-    More
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="{{this}}-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">{{this}}</h4>
+    <div class="row">
+    {{#each classes}}
+      <div class="button">
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-default btn-md class largeButton" id="{{this}}" data-toggle="modal" data-target="{{this}}-modal">
+            {{this}}
+          </button>
+          <br/>
+          <!-- Button trigger modal -->
+          <button class="btn btn-default thinButton info padding" data-toggle="modal" data-target="#{{this}}-modal" id='info-{{this}}'>
+            More
+          </button>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="{{this}}-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">{{this}}</h4>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    {{/each}}
     </div>
   </div>
-
-
-  {{/each}}
-<div>
 
 
 <div>

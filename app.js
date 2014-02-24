@@ -58,6 +58,7 @@ app.get('/user_login',login.login);
 app.post('/save_classes',data_functions.saveClasses);
 app.get('/get_classes',data_functions.getClasses);
 app.get('/get_all_classes',summary.getAllClasses);
+app.post('/get_class_detail',data_functions.getClassDetails);
 
 
 http.createServer(app).listen(app.get('port'), function(){

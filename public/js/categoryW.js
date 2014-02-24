@@ -33,8 +33,25 @@ function initializePage(){
 		$.post("/save_classes",
 			{"classes" : classes}, 
 			saveClasses);
-
 	});
+
+	$(".info").click(function(){
+		console.log("Modal button clicked");
+		var class_name = $(this).attr('id');
+		console.log(class_name);
+		$.post("/get_class_detail",{"class": class_name},postClassDetail);
+	});
+
+}
+
+function postClassDetail(result){
+	console.log(result);
+	var message = result['message'];
+	var className = result['class'];
+	className = className.substr('info-'.length);
+	message = message + ' ' + className;
+	console.log('#' + className + '-modal .modal-body')
+	$('#' + className + '-modal .modal-body').html(message);
 }
 
 function saveClasses(result){

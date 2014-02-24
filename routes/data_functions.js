@@ -57,3 +57,9 @@ function addToClasses(req, classes){
 	req.session.current_classes[requirement][category] = classes;
 	
 }
+
+exports.getClassDetails = function(req,res){
+	var class_name = req.body.class;
+	console.log(class_name);
+	res.json({'message' : "Nothing yet", 'class' : class_name});
+}

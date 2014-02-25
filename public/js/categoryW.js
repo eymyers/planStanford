@@ -47,11 +47,14 @@ function initializePage(){
 function postClassDetail(result){
 	console.log(result);
 	var message = result['message'];
+	console.log(message);
 	var className = result['class'];
-	className = className.substr('info-'.length);
-	message = message + ' ' + className;
+	var title = result['title'];
+	//className = className.substr('info-'.length);
+	message = message;
 	console.log('#' + className + '-modal .modal-body')
 	$('#' + className + '-modal .modal-body').html(message);
+	$('#' + className + '-modal .modal-title').html(className + ": " + title);
 }
 
 function saveClasses(result){

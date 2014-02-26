@@ -31,9 +31,37 @@
 
 	<!-- this is a comment in HTML -->
 	<div class="container">
-		<div class="jumbotron">
-  			<h1>{{requirement}} : {{category}}</h1>
-		</div>
+    <div class="page-header">
+      <h1>{{requirement}} : {{category}} 
+          <br/>
+          <button class="btn btn-default" type="button"data-toggle="modal" data-target="#details-modal" id='details'>
+            <i class="fa fa-question"></i> Details
+          </button>
+      </h1>
+    </div>
+
+
+    <div class="details_button">
+      
+
+      <!-- Modal -->
+      <div class="modal fade" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">{{category}} Requirement Details</h4>
+            </div>
+            <div class="modal-body">
+              {{about}}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
     {{#each classes}}
@@ -45,7 +73,7 @@
           <br/>
           <!-- Button trigger modal -->
           <button class="btn btn-default thinButton info padding" data-toggle="modal" data-target="#{{this}}-modal" id='info-{{this}}'>
-            More
+            <i class="fa fa-info"></i> Info
           </button>
         </div>
 
@@ -71,8 +99,8 @@
   </div>
 
 
-<div>
-  <a href="../{{requirement}}">
+<div class="cancel_button">
+  <a href="../{{requirement}}" style="position:fixed;">
     <button type="button" class="btn btn-info btn-sm bottom_left">
       Cancel
     </button>
@@ -80,13 +108,7 @@
 </div>
 
 <div class="save_button">
-    <button type="button" class="btn btn-success btn-sm">
-      Save2
-    </button>
-</div>
-
-<div class="save_button">
-  <a href="../{{requirement}}">
+  <a href="../{{requirement}}" style="position:fixed;">
     <button type="button" class="btn btn-success btn-sm bottom_right">
       Save
     </button>

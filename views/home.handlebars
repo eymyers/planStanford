@@ -44,15 +44,22 @@
 	</div>
 
 	<div class="container">
-		<div class="jumbotron">
-			<h1>PlanStanford</h1>
-			{{#if username}}
-				<h2>{{username}}</h2>
-			{{else}}
-				<h2>No username</h2>
-			{{/if}}
-			<p>Input your classes and find out what you have left to do.</p>
-		</div>
+
+		<div class="page-header">
+	      <h1>TrackStanford
+	         	<br/>
+	         	<small>
+	         		Keep track of the classes you've taken!
+		          	{{#if username}}
+		          		<br/>
+						{{username}}
+					{{else}}
+						<br/>
+						No username
+					{{/if}}
+				</small>          
+	      </h1>
+	    </div>
 
 
 
@@ -65,8 +72,9 @@
 		    <option value="2016">2016</option>
 		    <option value="2017">2017</option>
 		</select>
+		<br>
 		<a type="button" class="btn btn-primary" id="classButton" href="/requirement/University">
-  		<span ></span> Go to University Requirements
+  			Go to University Requirements
 		</a>
 
 		<hr/>
@@ -86,8 +94,9 @@
 				<option value="track">{{this}}</option>
 			{{/each}}
 		</select>
+		<br/>
 		<a type="button" class="btn btn-primary" id="majorButton" href="requirement/Major">
-  		<span ></span> Go to Major Requirements
+  			Go to Major Requirements
 		</a>
 
 		

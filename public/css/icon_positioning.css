@@ -3,14 +3,14 @@
 }
 
 .bottom_left{
-	position:absolute;
+	position:fixed;
 	width: 70px !important;
 	bottom:5px;
 	left:5px;
 }
 
 .bottom_right{
-	position:absolute;
+	position:fixed;
 	width: 70px !important;
 	bottom:5px;
 	right:5px;

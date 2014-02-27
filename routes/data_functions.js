@@ -7,6 +7,7 @@ var courseMap = require('../courseMap.json');
 // home.html
 exports.listTracks = function(req, res) { 
 	var major = req.params.major;
+	console.log(major);
 	var courseList = data[major]['tracks'];
 	res.json(courseList);
 }

@@ -1,7 +1,6 @@
 var data = require('../data.json');
 
 exports.viewRequirement = function(req,res){
-  // Don't know why the fuck this doesn't work
   // req.session.universityYear = "2014";
   // if(req.session.universityYear){
   //   uniYear = req.session.universityYear;
@@ -24,7 +23,11 @@ exports.viewRequirement = function(req,res){
   if(requirement != "University" && requirement != "Major"){
     res.render('home'); 
   }
-  var requirements = data['requirements'][requirement][uniYear];
+  var major = 'Computer Science';
+  if(requirement == 'University'){
+    major = "Buffer";
+  }
+  var requirements = data['requirements'][requirement][uniYear][major];
   //console.log(requirements);
   res.render('requirements',{
     "name" : requirement,

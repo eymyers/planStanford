@@ -2,21 +2,6 @@
     width: 300px !important;
 }
 
-#trackTitle{
-     visibility: hidden;
-}
-
-#trackfield {
-     visibility: hidden;
-}
-
-#majorButton {
-     visibility: hidden;
-}
-#classButton {
-     visibility: hidden;
-}
-
 hr {
      border: none;
      height: 2px;

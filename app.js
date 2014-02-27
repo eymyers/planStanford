@@ -15,7 +15,7 @@ var requirement = require('./routes/requirement');
 var category = require('./routes/category');
 var data_functions = require('./routes/data_functions');
 var login = require('./routes/login');
-var summary = require('./routes/summary')
+var summary = require('./routes/summary');
 var app = express();
 
 
@@ -51,6 +51,7 @@ app.get('/debug',home.debug);
 // Functions to get data
 app.get('/major/:major', data_functions.listTracks);
 app.get('/user_login',login.login);
+app.get('/class_major_track', home.class_major_track);
 app.post('/save_classes',data_functions.saveClasses);
 app.get('/get_classes',data_functions.getClasses);
 app.get('/get_all_classes',summary.getAllClasses);

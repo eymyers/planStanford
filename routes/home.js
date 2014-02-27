@@ -21,3 +21,20 @@ exports.viewHome = function(req, res){
 exports.debug = function(req,res){
 	res.render('debug',{'classes' : data['classes']});
 }
+
+exports.class_major_track = function (req,res) {
+	console.log(req.query);
+	console.log("major: "+req.query.majorfield);
+	console.log("track: "+req.query.trackfield);
+	console.log("class: "+req.query.classfield);
+	console.log("program:"+req.query.programyear);
+	
+	req.session.classyear = req.query.classfield;
+	req.session.programyear = req.query.programyear;
+	req.session.major = req.query.majorfield;
+	req.session.track = req.query.trackfield;
+	res.redirect('/requirement/Major');
+
+	// req.session.major = major;
+	// req.session.track = track;
+}

@@ -22,6 +22,12 @@
 		  				"about" : ""
 		  			},
 		  			{
+		  				"name" : "Writing & Rhetoric",
+		  				"classes" : ["PWR1","PWR2", "SLE"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
 		  				"name" : "Discplinary Breadth",
 		  				"classes" : ["NatSci", "ENGR","Hum","SocSci","Math"],
 		  				"electives" : "",
@@ -30,6 +36,84 @@
 		  			{
 		  				"name" : "Education for Citizenship",
 		  				"classes" : ["Gender","GlobalComm","EthicReas","AmerCultur"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			}
+	  			]
+	  		},
+	  		"2015" : {
+	  				"Buffer" : [
+		  			{
+		  				"name" : "IHUM",
+		  				"classes" : ["IHUM1","IHUM2", "IHUM3"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Writing & Rhetoric",
+		  				"classes" : ["PWR1","PWR2", "SLE"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Discplinary Breadth",
+		  				"classes" : ["NatSci", "ENGR","Hum","SocSci","Math"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Education for Citizenship",
+		  				"classes" : ["Gender","GlobalComm","EthicReas","AmerCultur"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			}
+	  			]
+	  		},
+	  		"2016" : {
+	  				"Buffer" : [
+		  			{
+		  				"name" : "IHUM",
+		  				"classes" : ["IHUM1","IHUM2", "IHUM3"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Writing & Rhetoric",
+		  				"classes" : ["PWR1","PWR2", "SLE"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Discplinary Breadth",
+		  				"classes" : ["NatSci", "ENGR","Hum","SocSci","Math"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Education for Citizenship",
+		  				"classes" : ["Gender","GlobalComm","EthicReas","AmerCultur"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			}
+	  			]
+	  		},
+	  		"2017" : {
+	  				"Buffer" : [
+		  			{
+		  				"name" : "Thinking Matters",
+		  				"classes" : ["THINK1"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Writing & Rhetoric",
+		  				"classes" : ["PWR1","PWR2", "SLE", "SIMILE", "ITALIC", "ESF"],
+		  				"electives" : "",
+		  				"about" : ""
+		  			},
+		  			{
+		  				"name" : "Ways of Doing",
+		  				"classes" : ["WAY-All", "WAY-ALL2","WAY-AQR","WAY-CE","WAY-ED","WAY-ER", "WAY-FR", "WAY-SI", "WAY-SI2", "WAY-SMA", "WAY-SMA2"],
 		  				"electives" : "",
 		  				"about" : ""
 		  			}

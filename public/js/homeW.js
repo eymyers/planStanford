@@ -12,11 +12,10 @@ function initializePage() {
 	console.log("Page Ready");
 	// add any functionality and listeners you want here
 	$('#classfield').change(toggleUniReqButton);
+	$('#programfield').change(togglemajorField);
 	$('#majorfield').change(toggleConcentrationField);
 	$('#trackfield').change(toggleConcentrationButton);
-	
 }
-
 
 // Toggles visibility of Button under University Requirements
 function toggleUniReqButton() {
@@ -24,30 +23,40 @@ function toggleUniReqButton() {
 	var year = document.getElementById('classfield').value;
 	console.log("year" + year);
 	if(year === "0") {
-		document.getElementById('classButton').style.visibility="hidden";
+		$('#classButton').attr('disabled', 'disabled');
 	} else {
-		document.getElementById('classButton').style.visibility="visible";	
+		$('#classButton').removeAttr('disabled');
 	}
+	toggleConcentrationButton();
 }
 
-// Toggles visibility of Select Concentration Dropdown
+function togglemajorField() {
+	console.log("Reached togglemajorField");
+	var major = document.getElementById('programfield').value;
+	if(major === "0") {
+		$('#majorfield').attr('disabled', 'disabled');
+	} else {
+		$('#majorfield').removeAttr('disabled');
+	}
+	toggleConcentrationButton();
+}
+
+// Toggles disabling of Select Concentration Dropdown
 function toggleConcentrationField() {
 	console.log("Reached toggleConcentrationField");
 	document.getElementById('trackfield').innerHTML='';
 	var maj = document.getElementById('majorfield').value;
-	
 	console.log("major" + maj);
 	if(maj === "0") {
-		document.getElementById('trackTitle').style.visibility="hidden";
-		document.getElementById('trackfield').style.visibility="hidden";
-
+		$('#trackfield').attr('disabled', 'disabled');
+		toggleConcentrationButton();
 	} else {
 		$.get("/major/" + maj, populateConcentration);
 		console.log("/major/" + maj);
-		document.getElementById('trackTitle').style.visibility="visible";
-		document.getElementById('trackfield').style.visibility="visible";
-		document.getElementById('majorButton').style.visibility="hidden";	
+		$('#trackfield').removeAttr('disabled');
+		
 	}
+
 }
 
 function populateConcentration(result) {
@@ -63,21 +72,22 @@ function populateConcentration(result) {
         el.value = result[i];
         dropdown.appendChild(el);
 	}
-	// .style.visibility="visible";
-	
-	// {{#each tracks}}
-	// 	<option value="track">{{this}}</option>
-	// {{/each}}
+	toggleConcentrationButton();
 }
 
 // Toggles visibility of Button under Major Requirements
 function toggleConcentrationButton() {
 	console.log("Reached toggleConcentrationButton");
+	var classYear = document.getElementById('classfield').value;
+	var programYear = document.getElementById('programfield').value;
+	var major = document.getElementById('majorfield').value;
 	var track = document.getElementById('trackfield').value;
 	console.log("track" + track);
-	if(track === "0") {
-		document.getElementById('majorButton').style.visibility="hidden";
+	if(track === "0" || major === "0" || programYear === "0" || classYear === "0") {
+		$('#majorButton').attr('disabled', 'disabled');
+		//document.getElementById('majorButton').style.visibility="hidden";
 	} else {
-		document.getElementById('majorButton').style.visibility="visible";	
+		$('#majorButton').removeAttr('disabled');
+		//document.getElementById('majorButton').style.visibility="visible";	
 	}
 }

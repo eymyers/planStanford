@@ -2,13 +2,15 @@
 
 <html>
 <head>
-	<title>HCI Project Portfolio</title>	
+	<title>TrackStanford-Summary</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="/css/requirements.css" rel="stylesheet">
 	<link href="/css/jumbotron.css" rel="stylesheet">
+  <link href="/css/icon_positioning.css" rel="stylesheet">
+
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -24,109 +26,23 @@
   {{>navbar}}
 
 
-	<div class="container">
-		<div class="jumbotron">
+	<div class="page-header">
 			<h1 class ="center-class">Summary</h1>
-		</div>
 	</div>
 	
-	
+	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th><a href="#">Category</a></th>
+        <th>Units Completed</th>
+        <th>Units Needed</th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+    </tbody>
+  </table>
 
-	<!-- <div class ="center-class">
-		<canvas id="universityChart" width="500" height="500"></canvas>	
-	</div>
-	<div class ="center-class">
-		<canvas id="majorChart" width="500" height="500"></canvas>	
-	</div>
+  {{>home_button}}
 
-	<div>
-	<a href="../index" >
-    	<button type="button" class="btn btn-info btn-sm bottom">
-      	Home
-    	</button>
-  	</a>
-  	</div>
-
-
-	<script src="/js/unireq.js"></script>
-	
 </body>
-</html> -->
-
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-    <!-- <div id="test-chart" style="width: 900px; height: 500px;">
-    </div> -->
-
-<div id="university-chart" style="width: 900px; height: 500px;">
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Courses', 'Completed', 'Required'],
-          ['IHUM',  3,      3],
-          ['Disciplinary Breadth',  3,      5],
-          ['Education for Citizenship',  1,       2]
-        ]);
-
-        var options = {
-          title: 'University Requirements',
-          vAxis: {title: 'Courses',  titleTextStyle: {color: 'red'}}
-        };
-
-        var chart = new google.visualization.BarChart(document.getElementById('university-chart'));
-        chart.draw(data, options);
-      }
-    </script>
-</div>
-<div id="major-chart" style="width: 900px; height: 500px;">
-  	<script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        
-        var data = google.visualization.arrayToDataTable([
-          ['Courses', 'Completed', 'Required'],
-          ['Math',  3,      4],
-          ['Science',  2,      3],
-          ['Technology in Society',  1,      1],
-          ['Engineering Fundamental',  2,      3],
-          ['Writing in the Major',  0,      1],
-          ['Core',  2,      3],
-          ['Speciality',  2,      4],
-          ['Capstone',  0,       1]
-        ]);
-        
-        //console.log("On summary page");
-        //console.log(structuredDataForGraph);
-        //var data = google.visualization.arrayToDataTable(structuredDataForGraph);
-
-        var options = {
-          title: 'Major Requirements',
-          vAxis: {title: 'Courses',  titleTextStyle: {color: 'red'}}
-        };
-
-        var chart = new google.visualization.BarChart(document.getElementById('major-chart'));
-        chart.draw(data, options);
-      }
-    </script>
-</div>
-
-	<div>
-	<a href="../index" style="position:fixed;">
-    	<button type="button" class="btn btn-info btn-sm bottom">
-      	Home
-    	</button>
-  	</a>
-  	</div>
-
-  </head>
-
-
-  <body>
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
-  </body>
 </html>

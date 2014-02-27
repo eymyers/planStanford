@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <title>Project</title>
+    <title>TrackStanford-Category</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -28,17 +28,25 @@
   <body>
     {{>navbar}}
   
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Profile</a></li>
-      <li><a href="#">Messages</a></li>
-    </ul>
+    {{#if on_elective}}
+      <ul class="nav nav-tabs">
+        <li><a href="/requirement/{{requirement}}/{{category}}">Required</a></li>
+        <li class="active"><a href="#">Electives</a></li>
+      </ul>
+    {{else}}  
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Required</a></li>
+        <li><a href="./{{category}}/Electives">Electives</a></li>
+      </ul>
+    {{/if}}
   
     <div >
       <h3 style="text-align:center;">{{requirement}} : {{category}} 
           <button class="btn btn-default btn-xs" type="button"data-toggle="modal" data-target="#details-modal" id='details'>
             <i class="fa fa-question"></i> Details
           </button>
+          <br/>
+          <small>{{miniDescription}}</small>
       </h3>
       <hr/>
     </div>

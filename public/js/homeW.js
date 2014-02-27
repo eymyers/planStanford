@@ -23,6 +23,7 @@ function toggleUniReqButton() {
 	console.log("Reached toggleUniReqButton");
 	var year = document.getElementById('classfield').value;
 	console.log("year" + year);
+	//req.session.year = year;
 	if(year === "0") {
 		document.getElementById('classButton').style.visibility="hidden";
 	} else {
@@ -35,7 +36,7 @@ function toggleConcentrationField() {
 	console.log("Reached toggleConcentrationField");
 	document.getElementById('trackfield').innerHTML='';
 	var maj = document.getElementById('majorfield').value;
-	
+	//req.session.major = maj;
 	console.log("major" + maj);
 	if(maj === "0") {
 		document.getElementById('trackTitle').style.visibility="hidden";
@@ -74,6 +75,7 @@ function populateConcentration(result) {
 function toggleConcentrationButton() {
 	console.log("Reached toggleConcentrationButton");
 	var track = document.getElementById('trackfield').value;
+	//req.session.track = track;
 	console.log("track" + track);
 	if(track === "0") {
 		document.getElementById('majorButton').style.visibility="hidden";

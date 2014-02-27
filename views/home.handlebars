@@ -47,11 +47,11 @@
 		<div class="jumbotron">
 			<h1>PlanStanford</h1>
 			{{#if username}}
-				<h2>{{username}}</h2>
+				<h2>Welcome {{username}}!</h2>
 			{{else}}
 				<h2>No username</h2>
 			{{/if}}
-			<p>Select year and major and find out what you have left to do.</p>
+			<p>Select year and major to begin!</p>
 		</div>
 
 
@@ -73,6 +73,8 @@
 
 		<h3>Major Requirements</h3>
 		<h6>Select Major</h6>
+		
+
 		<select class="form-control", id="majorfield">
 			<option value ="0" selected='sel'>-- Select Major --</option>
 			{{#each data.majors}}
@@ -86,7 +88,9 @@
 				<option value="track">{{this}}</option>
 			{{/each}}
 		</select>
-		<a type="button" class="btn btn-primary" id="majorButton" href="requirement/Major">
+		<a type="button" class="btn btn-primary" id="majorButton" action="assign_major_and_track">		
+
+		<!-- <a type="button" class="btn btn-primary" id="majorButton" href="requirement/Major"> -->
   		<span ></span> Go to Major Requirements
 		</a>
 

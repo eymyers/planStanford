@@ -21,3 +21,8 @@ exports.viewHome = function(req, res){
 exports.debug = function(req,res){
 	res.render('debug',{'classes' : data['classes']});
 }
+
+exports.assign_major_and_track = function (req,res) {
+	var major = 
+	var track = 
+}

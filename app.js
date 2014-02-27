@@ -50,6 +50,7 @@ app.get('/debug',home.debug);
 // Functions to get data
 app.get('/major/:major', data_functions.listTracks);
 app.get('/user_login',login.login);
+app.get('/home/assign_major_and_track', home.assign_major_and_track);
 app.post('/save_classes',data_functions.saveClasses);
 app.get('/get_classes',data_functions.getClasses);
 app.get('/get_all_classes',summary.getAllClasses);

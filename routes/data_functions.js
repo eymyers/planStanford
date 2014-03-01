@@ -9,7 +9,13 @@ exports.listTracks = function(req, res) { 
 	var major = req.params.major;
 	console.log(major);
 	var courseList = data[major]['tracks'];
-	res.json(courseList);
+	var populate = false;
+	var trackID;
+	if(req.session.track){
+		populate = true;
+		trackID = req.session.trackID;
+	}
+	res.send({'tracks':courseList,"populate":populate,"trackID":trackID});
 }
 
 exports.saveClasses = function(req,res){
@@ -17,7 +23,7 @@ exports.saveClasses = function(req,res){
 	addToClasses(req,classes);
 	console.log("In saveClasses");
 	console.log(req.session.current_classes);
-	res.json(JSON.stringify(classes));	
+	res.json({"requirement":req.session.requirement});	
 }
 
 exports.getClasses = function(req,res){
@@ -42,6 +48,32 @@ exports.getClasses = function(req,res){
 		res.json({'classes':"No classes"});
 	}
 }
+
+exports.getFormDetails = function(req,res){
+	var classYear, programYear, major, track, majorID, trackID;
+	if(req.session.classYear){
+		classYear = req.session.classYear;
+	}
+	if(req.session.programYear){
+		programYear = req.session.programYear;
+	}
+	if(req.session.major){
+		major = req.session.major;
+		majorID = req.session.majorID;
+	}
+	if(req.session.track){
+		track = req.session.track;
+		trackID = req.session.trackID;
+	}
+	res.json(
+		{'classYear': classYear, 
+		'programYear': programYear,
+		'major': major, 
+		'track': track,
+		'majorID' : majorID,
+		'trackID' : trackID});
+}
+
 
 function addToClasses(req, classes){
 	var category = req.session.current_category;

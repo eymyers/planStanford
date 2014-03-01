@@ -6,10 +6,8 @@ exports.viewRequirement = function(req,res){
   //   uniYear = req.session.universityYear;
   // }
 
-  // req.session.current_classes = ["WTF"];
   var current_classes = req.session.current_classes;
   if(req.session.current_classes){
-    console.log("It thinks there are current_classes in the session.");
     console.log(req.session.current_classes);
   }
   else{
@@ -19,6 +17,7 @@ exports.viewRequirement = function(req,res){
   var uniYear = "2014";
   //console.log(uniYear);
   var requirement = req.params.requirement;
+  req.session.requirement = req.params.requirement;
   //console.log(specificRequirement);
   if(requirement != "University" && requirement != "Major"){
     res.render('home'); 

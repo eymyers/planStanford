@@ -28,21 +28,6 @@
 
     {{>navbar}}
 
-	<div class="dropdown">
-  			<button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
-  				Dropdown
-  				<span class="caret"></span>
-  			</button>
-  			
-  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-	    		<li role="presentation" class="divider"></li>
-	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-  			</ul>
-	</div>
-
 	<div class="container">
 		<div class="page-header">
 	      <h1>TrackStanford
@@ -63,86 +48,43 @@
 
 		<!-- <h3>University Requirements</h3> -->
 		<label for="trackfield">Select Class Year</label>
-		<form id="class_year_page" action='class_major_track' role="form">
-			<select class="form-control" id="classfield" name="classfield">
-				<option value ="0" selected='sel'>-- Select Class Year --</option>
-			    <option value="2014">2014</option>
-			    <option value="2015">2015</option>
-			    <option value="2016">2016</option>
-			    <option value="2017">2017</option>    
+		<form class="form" id="class_year_page" action='class_major_track' method="get" role="form">
+			<select class="uni-year-control form-control" id="classfield" name="classfield">
+				<option id="none" value="0" selected="sel">-- Select Class Year --</option>
+			    <option id="uni-2011" value="2011">2011</option>
+			    <option id="uni-2012" value="2012">2012</option>
+			    <option id="uni-2013" value="2013">2013</option>
+			    <option id="uni-2014" value="2014">2014</option>    
 			</select>
 
 			<label for="programfield">Select Program Sheet Year
 			<a href="">(learn more)</a></label>
-			<select class="form-control" id="programfield" name="programyear">
-				<option value ="0" selected='sel'>-- Select Program Year --</option>
-			    <option value="2014">2014</option>
-			    <option value="2015">2015</option>
-			    <option value="2016">2016</option>
-			    <option value="2017">2017</option>    
+			<select class="prog-year-control form-control" id="programfield" name="programyear">
+				<option id="none" value ="0" selected="sel">-- Select Program Year --</option>
+			    <option id="prog-2011" value="2011">2011</option>
+			    <option id="prog-2012" value="2012">2012</option>
+			    <option id="prog-2013" value="2013">2013</option>
+			    <option id="prog-2014" value="2014">2014</option>    
 			</select>
 
 			<!-- <h3>Major Requirements</h3> -->
 			<label for="majorfield">Select Major</label>
-			<select disabled class="form-control", id="majorfield" name="majorfield">
-				<option value ="0" selected='sel'>-- Select Major --</option>
+			<select  disabled class="maj-control form-control", id="majorfield" name="majorfield">
+				<option id="none" value ="0" selected="sel">-- Select Major --</option>
 				{{#each data.majors}}
-					<option value="{{this}}">{{this}}</option>
+					<option id="maj-{{this.id}}" value="{{this.name}}-{{this.id}}">{{this.name}}</option>
 				{{/each}}
 			</select>
+
 			<label for="trackfield">Select Concentration</label>
-			<select disabled class="form-control", id="trackfield" name="trackfield">
-				<option value ="0" selected='sel'>-- Select Track --</option>
-				{{#each data.tracks}}
-					<option value="track">{{this}}</option>
-				{{/each}}
+			<select disabled class="track-control form-control", id="trackfield" name="trackfield">
+				<option id="none" value ="0" selected="sel">-- Select Track --</option>
 			</select>
 			<h4>Choose where to begin!</h4>
 			<button disabled type="submit" id="classButton" class="btn btn-primary">University Requirements</button>
 			<button disabled type="submit" id="majorButton" class="btn btn-primary">Major Requirements</button>
 		</form>
 
-		<!-- <a type="button" class="btn btn-primary" id="classButton" href="/requirement/University">
-  			Go to University Requirements
-		</a> -->
-	
-
-		
-
-		
-			<!-- <a type="button" class="btn btn-primary" id="majorButton" href="home/assign_major_and_track">		
-			<a type="button" class="btn btn-primary" id="majorButton" href="requirement/Major">
-	  		<span ></span> Go to Major Requirements
-			</a> -->
-		
-
-		
-		<!-- <div class="university">
-			<a href="university_requirements">
-				<p>Class of 2014</p>
-			</a>
-			</div> -->
-			
-		<!-- <div class="major">
-			<a href="project/{{this}}" class="thumbnail">
-				<img src="images/{{image}}" class="img">
-				<p>{{this}}</p>
-			</a>
-		</div> -->
-		
-
-		<!-- <h4>Majors</h4> -->
-		<!-- divs are invisible structuring elements that stack vertically by default. Use them to organize your code -->
-		<!-- img tags are images. Lorem Pixel will deliver random images; handy! -->
-		<!-- a are anchors, also known as hyperlinks. Use the href attribute to tell the browser where to go when the user clicks -->
-		<!-- {{#each projects}}
-		<div class="project" id="{{id}}">
-			<a href="project/{{name}}" class="thumbnail">
-				<img src="images/{{image}}" class="img">
-				<p>{{name}}</p>
-			</a>
-		</div>
-		{{/each}} -->
 		
 	</div>
 </body>

@@ -21,13 +21,22 @@ exports.viewCategory = function(req,res){
   var about;
   var miniDescription;
 
-  for(var i=0; i< requirements.length; i++){
+  for(var i=0; i<requirements.length; i++){
     var obj = requirements[i];
     if(obj.name == category){
-      classes_in_category = obj.classes;
       class_electives = obj.electives;
-      about = obj.about;
       miniDescription = obj.miniDescription;
+      if(category == "Specialization"){
+        track = req.session.track;
+        console.log("Track");
+        console.log(track);
+        console.log(obj.specializations.track);
+        about = obj.specializations["Artificial Intelligence"]["about"];
+        classes_in_category = obj.specializations["Artificial Intelligence"]["classes"];
+      }else{
+        about = obj.about;
+        classes_in_category = obj.classes;
+      }
     }
   }
 

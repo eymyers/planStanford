@@ -58,8 +58,9 @@ function postClassDetail(result){
 }
 
 function saveClasses(result){
-	console.log("Do nothing...");
-	console.log(result);
+	console.log(result.requirement);
+	var address = "/requirement/" + result.requirement;
+	window.location.href=address;
 }
 
 function getClasses(result){

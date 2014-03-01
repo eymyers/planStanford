@@ -56,6 +56,7 @@ app.post('/save_classes',data_functions.saveClasses);
 app.get('/get_classes',data_functions.getClasses);
 app.get('/get_all_classes',summary.getAllClasses);
 app.post('/get_class_detail',data_functions.getClassDetails);
+app.get('/get_form_details',data_functions.getFormDetails);
 
 
 http.createServer(app).listen(app.get('port'), function(){

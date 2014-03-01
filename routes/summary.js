@@ -54,6 +54,8 @@ function getUnitCount(allClasses,category){
 			}
 		}
 		var department = courseMap[classPrefix];
+		console.log(department);
+		console.log(class_name);
 		units = units + courseData[department][class_name]['units'];
 	}
 	return units;

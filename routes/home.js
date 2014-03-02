@@ -28,6 +28,8 @@ exports.class_major_track = function (req,res) {
 	console.log("track: "+req.query.trackfield);
 	console.log("class: "+req.query.classfield);
 	console.log("program:"+req.query.programyear);
+	//console.log(req.query.University_Button);
+	//console.log(req.query.Choice_Button);
 	
 	req.session.classYear = req.query.classfield;
 	req.session.programYear = req.query.programyear;
@@ -37,7 +39,8 @@ exports.class_major_track = function (req,res) {
 	track = req.query.trackfield.split("-");
 	req.session.track = track[0];
 	req.session.trackID = track[1];
-	res.redirect('/requirement/Major');
+
+	res.redirect('/requirement/'+req.query.Choice_Button);
 
 	// req.session.major = major;
 	// req.session.track = track;

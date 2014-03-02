@@ -26,8 +26,11 @@
   {{>navbar}}
 
 
-	<div class="page-header">
-			<h1 class ="center-class">Summary</h1>
+	<div class="page-header center-class">
+			<h1>Summary</h1>
+      {{#if programYear}}
+        <h5>Program Year: {{programYear}}</h5>
+      {{/if}}
 	</div>
 	
 	<table class="table table-striped">

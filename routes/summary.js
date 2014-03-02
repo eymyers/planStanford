@@ -4,7 +4,11 @@
 
 
 exports.view = function(req, res){
-    res.render('summary');
+	var programYear;
+	if(req.session.programYear){
+		programYear = req.session.programYear;
+	}
+    res.render('summary',{'programYear':programYear});
 };
 
 exports.getAllClasses = function(req,res){
@@ -78,7 +82,9 @@ function getUnitCount(allClasses,category){
 		var department = courseMap[classPrefix];
 		console.log(department);
 		console.log(class_name);
-		units = units + courseData[department][class_name]['units'];
+		if(courseData[department][class_name]){
+			units = units + courseData[department][class_name]['units'];
+		}
 	}
 	return units;
 }

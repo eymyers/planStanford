@@ -37,9 +37,6 @@
 		          	{{#if username}}
 		          		<br/>
 						Welcome {{username}}!
-					{{else}}
-						<br/>
-						No username
 					{{/if}}
 				</small>          
 	      </h1>
@@ -81,8 +78,8 @@
 				<option id="none" value ="0" selected="sel">-- Select Track --</option>
 			</select>
 			<h4>Choose where to begin!</h4>
-			<button disabled type="submit" id="classButton" class="btn btn-primary">University Requirements</button>
-			<button disabled type="submit" id="majorButton" class="btn btn-primary">Major Requirements</button>
+			<button disabled type="submit" id="classButton" class="btn btn-primary fixedWidth" name="Choice_Button" value="University">University Requirements</button>
+			<button disabled type="submit" id="majorButton" class="btn btn-primary fixedWidth" name="Choice_Button" value="Major">Major Requirements</button>
 		</form>
 
 		

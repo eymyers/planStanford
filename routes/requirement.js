@@ -25,6 +25,7 @@ exports.viewRequirement = function(req,res){
   var major = 'Computer Science';
   if(requirement == 'University'){
     major = "Buffer";
+    res.render("comingsoon",{"name":requirement});
   }
   var requirements = data['requirements'][requirement][uniYear][major];
   //console.log(requirements);

@@ -168,7 +168,7 @@
 		  			{
 		  				"name" : "Math",
 		  				"classes" : ["MATH41","MATH42","CS103","CS109"],
-		  				"electives" : ["Math51", "Math103", "Math104", "Math108", "Math109", "Math110", "Math113", "CS157", "CS205A", "Phil 151", "CME100", "CME102", "CME104"],
+		  				"electives" : ["MATH51", "MATH103", "MATH104", "MATH108", "MATH109", "MATH110", "MATH113", "CS157", "CS205A", "Phil 151", "CME100", "CME102", "CME104"],
 		  				"about" : "Mathematics (26 units minimum) MATH 19, 20 and 21 may be taken instead of MATH 41 and 42, as long as at least 26 math units are taken. Restrictions: Math 51 and Math 103, or Math 103 and Math 113, or CS 157 and Phil 151, may not be used in combination to satisfy the Math electives requirement. Students who have taken both Math 51 and 52 may not count CME 100 as an elective.",
 		  				"miniDescription" : "26 Units Required",
 		  				"unitsRequired" : 26

@@ -13,21 +13,22 @@ exports.getAllClasses = function(req,res){
 	var unitCount = {};
 	for(var i = 0; i < categories.length; i++){
 		var cat = categories[i];
-		var units = 0;
+		var unitsCompleted = 0;
 		if(allClasses['Major'][cat]){
-			units = getUnitCount(allClasses,cat);
+			unitsCompleted = getUnitCount(allClasses,cat);
 		}
-		var maxUnits = findUnit(cat,"Computer Science");
-		unitCount[cat] = {'unitsCompleted' : units, 'unitsNeeded' : maxUnits};
+		var unitsNeeded = findUnitsRequired(cat,"Computer Science");
+		unitCount[cat] = {'unitsCompleted' : unitsCompleted, 'unitsNeeded' : unitsNeeded};
 	}
 	console.log(unitCount);
 	allClasses['units'] = unitCount;
 	allClasses['categories'] = categories;
+	allClasses['map'] = data['Requirement_Map'];
 	console.log(allClasses);
 	res.send(allClasses);
 }
 
-function findUnit(category,major){
+function findUnitsRequired(category,major){
 	var unitsRequired;
 	var major = data['requirements']['Major']['2014'][major];
 	for(var i=0; i< major.length; i++){

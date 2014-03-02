@@ -34,6 +34,17 @@
       	}
       	]
     },
+
+    "Requirement_Map" : {
+    	"Math" : "Math",
+    	"Science" : "Science",
+    	"Technology in Society" : "TIS",
+    	"Engineering Fundamental" : "ENGRFUND",
+    	"Writing in the Major" : "WIM",
+    	"Core" : "Core",
+    	"Speciality" : "Speciality",
+    	"Senior Project" : "Senior"
+    },
     
     "Electrical Engineering" : {
       "tracks" : ["Computer Software", "Signals and Systems", "Circuits"]

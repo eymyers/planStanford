@@ -18,7 +18,9 @@ exports.getAllClasses = function(req,res){
 			unitsCompleted = getUnitCount(allClasses,cat);
 		}
 		var unitsNeeded = findUnitsRequired(cat,"Computer Science");
-		unitCount[cat] = {'unitsCompleted' : unitsCompleted, 'unitsNeeded' : unitsNeeded};
+		var classesRequired = getClassesRequired(cat,"Computer Science");
+		unitCount[cat] = {'unitsCompleted' : unitsCompleted, 'unitsNeeded' : unitsNeeded, 'classesRequired' : classesRequired};
+
 	}
 	console.log(unitCount);
 	allClasses['units'] = unitCount;
@@ -26,6 +28,25 @@ exports.getAllClasses = function(req,res){
 	allClasses['map'] = data['Requirement_Map'];
 	console.log(allClasses);
 	res.send(allClasses);
+}
+
+function getClassesRequired(category, major){
+	var classesNeeded;
+	var major = data['requirements']['Major']['2014'][major];
+	for(var i=0; i< major.length; i++){
+	    var obj = major[i];
+	    if(obj.name == category){
+	    	if(obj.unitsRequired != "One Class"){
+	    		console.log("String comparison Worked!");
+	    		console.log(obj.unitsRequired);
+	    		classesNeeded = obj.classes;
+	    	}else{
+	    		classesNeeded = obj.unitsRequired;
+	    	}
+	      break;
+	    }
+  	}
+  	return classesNeeded;
 }
 
 function findUnitsRequired(category,major){

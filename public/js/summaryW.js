@@ -20,21 +20,26 @@ function classData(data){
 		var category = data['categories'][i];
 		var unitsCompleted = data['units'][category]['unitsCompleted'];
 		var unitsNeeded = data['units'][category]['unitsNeeded'];
+		var classesRequired = data['units'][category]['classesRequired'];
 		//var html = "<tr> <td>" + category + "</td> <td>"+unitsCompleted+"</td> <td>"+unitsNeeded+"</td> </tr>";
 	
 		var html = '<tr><td> <div class=\"accordion\" id=\"accordion' + data['map'][category] + '\"> <div class=\"accordion-group\"> <div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion' + data['map'][category] + '\" href=\"#collapse' + data['map'][category] + '\"> <h5 class=\"game-name\">';
 
 
-    	var html2 = "<span class=\"arrow\"> <i class=\"fa fa-chevron-down fa-xs\"></i></span> </h5> </a> <div id=\"collapse" + data['map'][category] + "\" class=\"accordion-body collapse\">"
+    	var html2 = "<span class=\"arrow\"> <i class=\"fa fa-chevron-down fa-xs\"></i></span> </h5> </a> <div id=\"collapse" + data['map'][category] + "\" class=\"accordion-body collapse\">";
 
-    	var allClasses = ""
+    	var classesTaken = ""
 		if(data['Major'][category]){
-			allClasses = data['Major'][category];
+			classesTaken = data['Major'][category];
 		}else{
-			allClasses = "None"
+			classesTaken = "None"
 		}
+		var backTag = "<a href=\"/requirement/Major/" + category + "\">Go to " + category + " page <i class=\"fa fa-angle-double-right\"></i></a>";
 
-		console.log(allClasses);
+		var classHtml = "Classes Used: <br/>" + classesTaken + "<br/>Classes Required:<br/>" + classesRequired + "<br/>" + backTag;
+
+
+
 		var html3 = '</div> </div> </div> </div> </div>';
 
 
@@ -52,7 +57,7 @@ function classData(data){
 		var html4 = "</td> <td>"+unitsCompleted+"</td> <td>"+unitsNeeded+"</td> </tr>";
 
     	// console.log(html);
-    	fullHtml = fullHtml.concat(html,category,html2,allClasses,html3,html4);
+    	fullHtml = fullHtml.concat(html,category,html2,classHtml,html3,html4);
 	}
 	console.log(fullHtml);
 	$('.table-body').html(fullHtml);

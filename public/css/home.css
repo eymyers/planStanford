@@ -1,5 +1,6 @@
 .fixedWidth {
-    width: 200px !important;
+    width: 120px;
+    height: 100px;
 }
 
 hr {

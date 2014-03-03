@@ -31,14 +31,21 @@ exports.class_major_track = function (req,res) {
 	//console.log(req.query.University_Button);
 	//console.log(req.query.Choice_Button);
 	
-	req.session.classYear = req.query.classfield;
-	req.session.programYear = req.query.programyear;
-	major = req.query.majorfield.split("-");
-	req.session.major = major[0];
-	req.session.majorID = major[1];
-	track = req.query.trackfield.split("-");
-	req.session.track = track[0];
-	req.session.trackID = track[1];
+	
+	if(req.query.Choice_Button == "Major"){
+		req.session.classYear = req.query.classfield;
+		req.session.programYear = req.query.programyear;
+		major = req.query.majorfield.split("-");
+		req.session.major = major[0];
+		req.session.majorID = major[1];
+		track = req.query.trackfield.split("-");
+		req.session.track = track[0];
+		req.session.trackID = track[1];
+	}
+
+	if(req.query.Choice_Button == "University"){
+		req.session.classYear = req.query.classfield;
+	}
 
 	res.redirect('/requirement/'+req.query.Choice_Button);
 

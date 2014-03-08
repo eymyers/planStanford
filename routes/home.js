@@ -4,6 +4,7 @@
  */
 
  var data = require('../data.json');
+ var models = require('../models');
 
 exports.viewHome = function(req, res){
 	//var username = {"username" : req.session.username};
@@ -13,14 +14,52 @@ exports.viewHome = function(req, res){
 
 	//var merged_object = JSON.parse((JSON.stringify(object1) + JSON.stringify(object2)).replace(/}{/g,","))
 
-	console.log(req.session.username);
-    res.render('home', {'data' : data, 'username' : req.session.username});
+	if(!req.session.login){
+		res.redirect("/login");
+	}else{
+		console.log(req.session.username);
+    	res.render('home', {'data' : data, 'username' : req.session.username});
+	}
 };
 
 
 exports.debug = function(req,res){
 	res.render('debug',{'classes' : data['classes']});
 }
+
+exports.debug2 = function(req,res){
+	models.userData.find({}).exec(function(err,data){
+		if(err) console.log(err);
+		res.send(data);
+	});
+	// models.Project.find({'title':'dopesauce'}).exec(afterQuery);
+
+	// function afterQuery(err,name){
+	// 	if(err) console.log(err);
+	// 	console.log(name.length);
+	// 	if(!name.length){
+	// 		newData = {'title':"dopesauce"};
+	// 		var data = new models.Project(newData);
+	// 		data.save(afterSaving);
+	// 		console.log("Added dopesauce!");
+	// 	}
+
+	// 	function afterSaving(err){
+	// 		if(err){
+	//   			console.log(err);
+	//   			res.send(500);
+	// 		}
+	// 		res.send(200);
+	// 	}
+	// }
+
+	// models.Project.find({}).exec(sendData);
+	// function sendData(err,data){
+	// 	if(err) console.log(err);
+	// 	res.send(data);
+	// }
+}
+
 
 exports.class_major_track = function (req,res) {
 	console.log(req.query);
@@ -47,8 +86,29 @@ exports.class_major_track = function (req,res) {
 		req.session.classYear = req.query.classfield;
 	}
 
+	models.userData.find({'userID':req.session.username}).exec(update);
+
+	function update(err,data){
+		data[0].classYear = req.query.classfield;
+		data[0].programYear = req.query.programyear;
+		data[0].majorName = req.session.major;
+		data[0].majorID = req.session.majorID;
+		data[0].trackName = req.session.track;
+		data[0].trackID = req.session.trackID;
+		data[0].save();
+	}
+
 	res.redirect('/requirement/'+req.query.Choice_Button);
 
 	// req.session.major = major;
 	// req.session.track = track;
 }
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 var data = require ('../data.json');
 var courseData = require('../courseData.json');
 var courseMap = require('../courseMap.json');
+var models = require('../models');
 
 
 // Function used to populate form in home.page
@@ -35,6 +36,7 @@ exports.getClasses = function(req,res){
 	console.log(category);
 	if(category){
 		var classes = null;
+		console.log(req.session.current_classes);
 		try{
 			classes = req.session.current_classes[requirement][category];
 		}
@@ -49,29 +51,69 @@ exports.getClasses = function(req,res){
 	}
 }
 
+// exports.getFormDetails = function(req,res){
+// 	var classYear, programYear, major, track, majorID, trackID;
+// 	if(req.session.classYear){
+// 		classYear = req.session.classYear;
+// 	}
+// 	if(req.session.programYear){
+// 		programYear = req.session.programYear;
+// 	}
+// 	if(req.session.major){
+// 		major = req.session.major;
+// 		majorID = req.session.majorID;
+// 	}
+// 	if(req.session.track){
+// 		track = req.session.track;
+// 		trackID = req.session.trackID;
+// 	}
+// 	res.json(
+// 		{'classYear': classYear, 
+// 		'programYear': programYear,
+// 		'major': major, 
+// 		'track': track,
+// 		'majorID' : majorID,
+// 		'trackID' : trackID});
+// }
+
 exports.getFormDetails = function(req,res){
-	var classYear, programYear, major, track, majorID, trackID;
-	if(req.session.classYear){
-		classYear = req.session.classYear;
-	}
-	if(req.session.programYear){
-		programYear = req.session.programYear;
-	}
-	if(req.session.major){
-		major = req.session.major;
-		majorID = req.session.majorID;
-	}
-	if(req.session.track){
-		track = req.session.track;
-		trackID = req.session.trackID;
-	}
-	res.json(
-		{'classYear': classYear, 
-		'programYear': programYear,
-		'major': major, 
-		'track': track,
-		'majorID' : majorID,
-		'trackID' : trackID});
+	models.userData.find({'userID':req.session.username}).exec(function(err,user){
+		if(user.length == 1){
+			console.log("Taking from database");
+			console.log(user[0].trackName);
+			console.log(user[0].trackID);
+
+			req.session.classYear = user[0].classYear;
+			req.session.programYear =  user[0].programYear;
+			req.session.major = user[0].majorName;
+			req.session.majorID = user[0].majorID;
+			req.session.track = user[0].trackName;
+			req.session.trackID = user[0].trackID;
+
+			var classYear, programYear, major, track, majorID, trackID;
+			if(req.session.classYear){
+				classYear = req.session.classYear;
+			}
+			if(req.session.programYear){
+				programYear = req.session.programYear;
+			}
+			if(req.session.major){
+				major = req.session.major;
+				majorID = req.session.majorID;
+			}
+			if(req.session.track){
+				track = req.session.track;
+				trackID = req.session.trackID;
+			}
+			res.json(
+				{'classYear': classYear, 
+				'programYear': programYear,
+				'major': major, 
+				'track': track,
+				'majorID' : majorID,
+				'trackID' : trackID});
+				}
+	});
 }
 
 

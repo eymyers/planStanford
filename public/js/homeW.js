@@ -28,6 +28,8 @@ function postDetails(data){
 			$(".maj-control #maj-" + data.majorID).prop("selected","sel");
 			$('#trackfield').removeAttr('disabled');
 			$.get("/major/" + data.major, populateConcentration);
+			$('#majorButton').removeAttr('disabled');
+
 
 			// if(data.track){
 			// 	console.log("Trying to populate the last one!");

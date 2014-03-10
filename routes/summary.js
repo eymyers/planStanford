@@ -12,7 +12,7 @@ exports.view = function(req, res){
 		if(req.session.programYear){
 			programYear = req.session.programYear;
 		}
-		saveData(req,res);
+		//saveData(req,res);
 	    res.render('summary',{'programYear':programYear});
 	}
 };

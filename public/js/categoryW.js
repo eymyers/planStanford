@@ -19,7 +19,7 @@ function initializePage(){
 		console.log("Icon clicked");
 		console.log(".test #" + this.id);
 		$("#" + this.id).toggleClass("classPicked");
-		$(".button #" + this.id).toggleClass("btn-danger");
+		$(".button #" + this.id).toggleClass("grayBtn");
 	});
 
 	$(".save_button").click(function(){
@@ -71,7 +71,7 @@ function getClasses(result){
 	for(var i = 0; i < current_classes.length; i++){
 		console.log('#'+current_classes[i]);
 		$('#'+current_classes[i]).toggleClass("classPicked");
-		$('.button #'+current_classes[i]).toggleClass("btn-danger");
+		$('.button #'+current_classes[i]).toggleClass("grayBtn");
 
 	}
 	//toggle class to active for every class passed in

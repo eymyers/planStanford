@@ -6,6 +6,7 @@ exports.viewCategory = function(req,res){
   if(!req.session.login){
     res.redirect('/login');
   }else{
+    req.session.on_elective = false;
     var uniYear = "2014";
     var category = req.params.category;
     var requirement = req.params.requirement;
@@ -72,6 +73,7 @@ exports.viewElectives = function(req,res){
   if(!req.session.login){
     res.redirect('/login');
   }else{
+    req.session.on_elective = true;
     var uniYear = "2014";
     var category = req.params.category;
     var requirement = req.params.requirement;

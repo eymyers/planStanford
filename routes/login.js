@@ -39,7 +39,8 @@ exports.create_account = function(req,res){
 				}
 			}
 			req.session.login = true;
-			res.render('home',{'username':email});
+			//res.render('home',{'username':email});
+			res.redirect('/home');
 		}else{
 			console.log("User already exists");
 			res.render('login',{"message":"User account already exists."});
@@ -101,7 +102,8 @@ exports.login = function(req,res){
 					// console.log(allClasses);
 					console.log(req.session.current_classes);
 				}
-				res.render('home',{username:email});
+				// res.render('home',{username:email});
+				res.redirect('/home');
 			}
 		}
 	});

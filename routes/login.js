@@ -14,6 +14,39 @@ exports.logout = function(req,res){
 	res.render('login');
 }
 
+exports.sign_up_page = function(req,res){
+	res.render('sign_up');
+}
+
+exports.create_account = function(req,res){
+	var email = req.body.email;
+	var password = req.body.password;
+	models.userData.find({'userID':email}).exec(function(err,user){
+		if(user.length == 0){
+			console.log("user doesn't exist");
+			console.log("creating account");
+			var newUser = new models.userData();
+			newUser.userID = email;
+			newUser.password = password;
+			newUser.save(afterSaving);
+			function afterSaving(err){
+				if(err){
+					console.log(err);
+					res.send(500);
+				}else{
+					console.log("Redirecting to home");
+					res.render('summary');
+				}
+			}
+			req.session.login = true;
+			res.render('home',{'username':email});
+		}else{
+			console.log("User already exists");
+			res.render('login',{"message":"User account already exists."});
+		}
+	});
+}
+
 exports.login = function(req,res){
 	// var email = req.query.email;
 	// var password = req.query.password;
@@ -29,18 +62,19 @@ exports.login = function(req,res){
 	models.userData.find({'userID':email}).exec(function(err,user){
 		if(user.length == 0){
 			console.log("user doesn't exist");
-			var newUser = new models.userData();
-			newUser.userID = email;
-			newUser.password = password;
-			newUser.save(afterSaving);
-			function afterSaving(err){
-				if(err){
-					console.log(err);
-					res.send(500);
-				}else{
-					res.redirect('/home');
-				}
-			}
+			// var newUser = new models.userData();
+			// newUser.userID = email;
+			// newUser.password = password;
+			// newUser.save(afterSaving);
+			// function afterSaving(err){
+			// 	if(err){
+			// 		console.log(err);
+			// 		res.send(500);
+			// 	}else{
+			// 		res.redirect('/home');
+			// 	}
+			// }
+			res.render('login',{"message":"User account does not exist."});
 
 		}else{ //user has been created
 			console.log(user)
@@ -67,7 +101,7 @@ exports.login = function(req,res){
 					// console.log(allClasses);
 					console.log(req.session.current_classes);
 				}
-				res.redirect('/home');
+				res.render('home',{username:email});
 			}
 		}
 	});

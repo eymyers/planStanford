@@ -60,6 +60,8 @@ app.get('/debug2',home.debug2);
 // Functions to get data
 app.get('/major/:major', data_functions.listTracks);
 app.post('/user_login',login.login);
+app.post('/create_account',login.create_account);
+app.get('/sign_up',login.sign_up_page);
 app.get('/class_major_track', home.class_major_track);
 app.post('/save_classes',data_functions.saveClasses);
 app.get('/get_classes',data_functions.getClasses);

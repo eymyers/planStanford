@@ -15,7 +15,16 @@ exports.viewCategory = function(req,res){
         major = "Buffer";
     }
     console.log(major);
-    var requirements = data['requirements'][requirement][uniYear][major];
+    console.log(requirement);
+    console.log(req.params.requirement);
+    console.log(req.params);
+    console.log(category);
+    var requirements = data['requirements'];
+    console.log(requirements);
+    var requirements = data['requirements'][requirement];
+    console.log(requirements);
+
+    var requirements = data['requirements'][requirement]['2014'][major];
     //console.log(requirements);
     req.session.current_category = category;
     req.session.current_requirement = requirement;

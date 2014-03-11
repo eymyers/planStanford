@@ -23,7 +23,7 @@ function classData(data){
 		var classesRequired = data['units'][category]['classesRequired'];
 		//var html = "<tr> <td>" + category + "</td> <td>"+unitsCompleted+"</td> <td>"+unitsNeeded+"</td> </tr>";
 	
-		var html = '<tr><td> <div class=\"accordion\" id=\"accordion' + data['map'][category] + '\"> <div class=\"accordion-group\"> <div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion' + data['map'][category] + '\" href=\"#collapse' + data['map'][category] + '\"> <h5 class=\"game-name\">';
+		var html = '<tr><td> <div class=\"accordion\" id=\"accordion' + data['map'][category] + '\"> <div class=\"accordion-group\"> <div class=\"accordion-heading\"><a class=\"accordion-toggle\" data-toggle=\"collapse\" style="color: #b42121;" data-parent=\"#accordion' + data['map'][category] + '\" href=\"#collapse' + data['map'][category] + '\"> <h5 class=\"game-name\">';
 
 
     	var html2 = "<span class=\"arrow\"> <i class=\"fa fa-chevron-down fa-xs\"></i></span> </h5> </a> <div id=\"collapse" + data['map'][category] + "\" class=\"accordion-body collapse\">";
@@ -34,7 +34,7 @@ function classData(data){
 		}else{
 			classesTaken = "None"
 		}
-		var backTag = "<a href=\"/requirement/Major/" + category + "\">Go to " + category + " page <i class=\"fa fa-angle-double-right\"></i></a>";
+		var backTag = "<a style=\"color: #b42121;\" href=\"/requirement/Major/" + category + "\">Go to " + category + " page <i class=\"fa fa-angle-double-right\"></i></a>";
 
 		var classHtml = "Classes Used: <br/>" + classesTaken + "<br/>Classes Required:<br/>" + classesRequired + "<br/>" + backTag;
 

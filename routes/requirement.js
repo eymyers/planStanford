@@ -27,7 +27,7 @@ exports.viewRequirement = function(req,res){
       res.render('home'); 
     }
     var major = 'Computer Science';
-    if(requirement == 'University'){
+    if(requirement === 'University'){
       major = "Buffer";
       res.render("comingsoon",{"name":requirement});
     }

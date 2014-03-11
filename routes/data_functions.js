@@ -1,6 +1,7 @@
 var data = require ('../data.json');
 var courseData = require('../courseData.json');
 var courseMap = require('../courseMap.json');
+var models = require('../models');
 
 
 // Function used to populate form in home.page
@@ -23,7 +24,21 @@ exports.saveClasses = function(req,res){
 	addToClasses(req,classes);
 	console.log("In saveClasses");
 	console.log(req.session.current_classes);
-	res.json({"requirement":req.session.requirement});	
+
+	models.userData.find({'userID':req.session.username}).exec(update);
+
+	function update(err,data){
+		var category = req.session.current_category;
+		var requirement = req.session.current_requirement;
+		var categoryClasses = req.session.current_classes[requirement][category];
+		data[0].major[category] = categoryClasses;
+		data[0].save();
+		res.json({"requirement":req.session.requirement});	
+	}
+
+	//res.json({"requirement":req.session.requirement});	
+
+
 }
 
 exports.getClasses = function(req,res){
@@ -35,6 +50,7 @@ exports.getClasses = function(req,res){
 	console.log(category);
 	if(category){
 		var classes = null;
+		console.log(req.session.current_classes);
 		try{
 			classes = req.session.current_classes[requirement][category];
 		}
@@ -49,48 +65,158 @@ exports.getClasses = function(req,res){
 	}
 }
 
+// exports.getFormDetails = function(req,res){
+// 	var classYear, programYear, major, track, majorID, trackID;
+// 	if(req.session.classYear){
+// 		classYear = req.session.classYear;
+// 	}
+// 	if(req.session.programYear){
+// 		programYear = req.session.programYear;
+// 	}
+// 	if(req.session.major){
+// 		major = req.session.major;
+// 		majorID = req.session.majorID;
+// 	}
+// 	if(req.session.track){
+// 		track = req.session.track;
+// 		trackID = req.session.trackID;
+// 	}
+// 	res.json(
+// 		{'classYear': classYear, 
+// 		'programYear': programYear,
+// 		'major': major, 
+// 		'track': track,
+// 		'majorID' : majorID,
+// 		'trackID' : trackID});
+// }
+
 exports.getFormDetails = function(req,res){
-	var classYear, programYear, major, track, majorID, trackID;
-	if(req.session.classYear){
-		classYear = req.session.classYear;
-	}
-	if(req.session.programYear){
-		programYear = req.session.programYear;
-	}
-	if(req.session.major){
-		major = req.session.major;
-		majorID = req.session.majorID;
-	}
-	if(req.session.track){
-		track = req.session.track;
-		trackID = req.session.trackID;
-	}
-	res.json(
-		{'classYear': classYear, 
-		'programYear': programYear,
-		'major': major, 
-		'track': track,
-		'majorID' : majorID,
-		'trackID' : trackID});
+	models.userData.find({'userID':req.session.username}).exec(function(err,user){
+		if(user.length == 1){
+			console.log("Taking from database");
+			console.log(user[0].trackName);
+			console.log(user[0].trackID);
+
+			req.session.classYear = user[0].classYear;
+			req.session.programYear =  user[0].programYear;
+			req.session.major = user[0].majorName;
+			req.session.majorID = user[0].majorID;
+			req.session.track = user[0].trackName;
+			req.session.trackID = user[0].trackID;
+
+			var classYear, programYear, major, track, majorID, trackID;
+			if(req.session.classYear){
+				classYear = req.session.classYear;
+			}
+			if(req.session.programYear){
+				programYear = req.session.programYear;
+			}
+			if(req.session.major){
+				major = req.session.major;
+				majorID = req.session.majorID;
+			}
+			if(req.session.track){
+				track = req.session.track;
+				trackID = req.session.trackID;
+			}
+			res.json(
+				{'classYear': classYear, 
+				'programYear': programYear,
+				'major': major, 
+				'track': track,
+				'majorID' : majorID,
+				'trackID' : trackID});
+				}
+	});
 }
 
 
-function addToClasses(req, classes){
+function addToClasses(req, classesPicked){
 	var category = req.session.current_category;
 	var requirement = req.session.current_requirement;
 	console.log("Category " + category);
 	console.log("Current category " + req.session.current_category);
-	console.log("classes " + classes);
+	console.log("classes " + classesPicked);
+	var current_classes = req.session.current_classes[requirement][category];
+	var on_elective = req.session.on_elective;
+	var newClassList = [].concat(current_classes);
+	var classNumber = current_classes.length;
+	console.log("Class Number" + classNumber);
+	console.log(newClassList);
 
 
+
+	var required = data['requirements']['Major']['2014']['Computer Science'];
+	var classes_in_category;
+	var class_electives;
+	for(var i=0; i< required.length; i++){
+    	var obj = required[i];
+     	if(obj.name == category){
+        	classes_in_category = obj.classes;
+        	class_electives = obj.electives;
+      	}
+    }
+
+
+	// If current_classes isn't created, create it and add classes
 	if(!req.session.current_classes){
-		// If current_classes isn't created, create it and add classes
 		req.session.current_classes = {};
 	}
+
+	// Requirement doesn't exist;
 	if(!req.session.current_classes[requirement]){
 			req.session.current_classes[requirement] = {}
 	}
-	req.session.current_classes[requirement][category] = classes;
+	else if(req.session.current_classes[requirement][category]){
+		if(typeof classesPicked !=='undefined'){
+			if(on_elective){
+				for(var i = 0; i<current_classes.length; i++){
+					if( classesPicked.indexOf(current_classes[i]) < 0 && class_electives.indexOf(current_classes[i]) > -1){
+						newClassList.splice(newClassList.indexOf(current_classes[i]),1);
+											console.log(newClassList);
+
+					}
+				}
+			}else{ // should be on required classes
+				for(var i = 0; i<current_classes.length; i++){
+					console.log(i);
+					if(classesPicked.indexOf(current_classes[i]) < 0 && classes_in_category.indexOf(current_classes[i]) > -1){
+						newClassList.splice(newClassList.indexOf(current_classes[i]),1);
+
+					}
+				}
+			}
+
+			// Add new classes
+			for(var i = 0; i<classesPicked.length; i++){
+
+				var index = current_classes.indexOf(classesPicked[i]);
+				if(index < 0){
+					newClassList.push(classesPicked[i]);
+				}
+			}
+		}else{
+			if(on_elective){
+				for(var i = 0; i<current_classes.length; i++){
+					if(class_electives.indexOf(current_classes[i]) > -1){
+						newClassList.splice(newClassList.indexOf(current_classes[i]),1);
+
+					}
+				}
+			}else{ // should be on required classes
+				for(var i = 0; i<current_classes.length; i++){
+					if(classes_in_category.indexOf(current_classes[i]) > -1){
+						newClassList.splice(newClassList.indexOf(current_classes[i]),1);
+
+					}
+				}
+			}
+		}
+		req.session.current_classes[requirement][category] = newClassList;
+
+	}else{
+		req.session.current_classes[requirement][category] = classes;
+	}
 	
 }
 function isNumeric(num){

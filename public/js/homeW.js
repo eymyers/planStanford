@@ -1,5 +1,6 @@
 'use strict';
 
+var concentrationPopulated = false;
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
@@ -27,6 +28,8 @@ function postDetails(data){
 			$(".maj-control #maj-" + data.majorID).prop("selected","sel");
 			$('#trackfield').removeAttr('disabled');
 			$.get("/major/" + data.major, populateConcentration);
+			$('#majorButton').removeAttr('disabled');
+
 
 			// if(data.track){
 			// 	console.log("Trying to populate the last one!");
@@ -61,7 +64,7 @@ function toggleMajorField() {
 	} else {
 		$('#majorfield').removeAttr('disabled');
 	}
-	toggleMajorButton();
+	// toggleMajorButton();
 }
 
 // Toggles disabling of Select Concentration Dropdown
@@ -100,14 +103,14 @@ function populateConcentration(result) {
         el.id = "track-" + list[i].id;
         dropdown.appendChild(el);
 	}
-	toggleMajorButton();
+	//toggleMajorButton();
 
 	try{
 		populate = result.populate;
 		console.log("Trying to populate...");
 		$(".track-control #none").removeAttr("selected");
 		$(".track-control #track-" + result.trackID).prop("selected","sel");	
-		$('#majorButton').removeAttr('disabled');
+		// $('#majorButton').removeAttr('disabled');
 	}catch(err){
 		console.log(err);
 	}

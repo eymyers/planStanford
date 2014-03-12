@@ -36,7 +36,8 @@ exports.viewRequirement = function(req,res){
     res.render('requirements',{
       "name" : requirement,
       "requirements" : requirements,
-      "classes" : current_classes
+      "classes" : current_classes,
+      "specialization" : req.session.track
     });
   }
 }

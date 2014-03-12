@@ -35,7 +35,12 @@
     {{/if}}
   
     <div >
-      <h3 style="text-align:center;">{{requirement}} : {{category}} 
+      <h3 style="text-align:center;">{{requirement}} : 
+          {{#if on_specialization}}
+            {{on_specialization}}
+          {{else}}
+            {{category}} 
+          {{/if}}
           <button class="btn btn-default btn-xs" type="button"data-toggle="modal" data-target="#details-modal" id='details'>
             <i class="fa fa-question"></i> Details
           </button>

@@ -18,6 +18,11 @@ function classData(data){
 	var fullHtml = "";
 	for(var i = 0; i<data['categories'].length; i++){
 		var category = data['categories'][i];
+		var categoryName = category;
+		if(category == "Specialization"){
+			console.log("found specializaiton!");
+			categoryName = data['special'];
+		}
 		var unitsCompleted = data['units'][category]['unitsCompleted'];
 		var unitsNeeded = data['units'][category]['unitsNeeded'];
 		var classesRequired = data['units'][category]['classesRequired'];
@@ -34,7 +39,7 @@ function classData(data){
 		}else{
 			classesTaken = "None"
 		}
-		var backTag = "<a style=\"color: #b42121;\" href=\"/requirement/Major/" + category + "\">Go to " + category + " page <i class=\"fa fa-angle-double-right\"></i></a>";
+		var backTag = "<a style=\"color: #b42121;\" href=\"/requirement/Major/" + category + "\">Go to " + categoryName + " page <i class=\"fa fa-angle-double-right\"></i></a>";
 
 		var classHtml = "Classes Used: <br/>" + classesTaken + "<br/>Classes Required:<br/>" + classesRequired + "<br/>" + backTag;
 
@@ -57,9 +62,9 @@ function classData(data){
 		var html4 = "</td> <td>"+unitsCompleted+"</td> <td>"+unitsNeeded+"</td> </tr>";
 
     	// console.log(html);
-    	fullHtml = fullHtml.concat(html,category,html2,classHtml,html3,html4);
+    	fullHtml = fullHtml.concat(html,categoryName,html2,classHtml,html3,html4);
 	}
-	console.log(fullHtml);
+	//console.log(fullHtml);
 	$('.table-body').html(fullHtml);
 }
           

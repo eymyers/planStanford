@@ -89,6 +89,7 @@ exports.getAllClasses = function(req,res){
 	allClasses['units'] = unitCount;
 	allClasses['categories'] = categories;
 	allClasses['map'] = data['Requirement_Map'];
+	allClasses['special'] = req.session.track;
 	console.log(allClasses);
 	res.send(allClasses);
 }

@@ -245,46 +245,47 @@
 						"electives" : ["CS108","CS121","CS221","CS124","CS140","CS142","CS143","CS144","CS145","CS147","CS148","CS149","CS154", "CS155", "CS156", "CS157","PHIL151","CS164","CS205A", "CS205B", "CS210A","CS222", "CS223A", "CS223B", "CS224M", "CS224N", "CS224S", "CS224U", "CS224W", "CS225A", "CS225B", "CS226", "CS227", "CS228", "CS228T", "CS229", "CS240", "CS241", "CS242", "CS243", "CS244", "CS244B", "CS245", "CS246", "CS247", "CS248", "CS249A", "CS249B", "CS255", "CS254", "CS256", "CS257", "CS258", "CS261", "CS262", "CS270", "CS271", "CS272", "CS273A", "CS274", "CS276", "CS277", "CS295", "CME108", "EE108B", "EE282"],
 						"miniDescription" : "Minimum of 7 courses (26 units minimum required)",
 						"unitsRequired" : 26,
+						"classes" : [],
 						"specializations" : 
-						[ 
-							{	"Artificial Intelligence" : 
+						{
+							"Artificial Intelligence" : 
 								{	"classes" : ["CS221","CS223A","CS223B","CS224M","CS224N","CS226","CS227","CS228","CS229","CS124","CS205A","CS222","CS224S","CS224U","CS224W","CS225A","CS227B","CS262","CS276","CS277","CS279","CS321","CS323","CS326A","CS327A","CS329","CS374","CS379","EE263","EE376A","ENGR205","ENGR209A","MS&E251","MS&E339","MS&E351","STAT315A","STAT315B","CS275","CS278","EE364A","EE364B","ECON286","MS&E252","MS&E352","MS&E355","PHIL152","PSYCH202","PSCY204A","PSYC204B","STAT200","STAT202","STAT205"],
 									"about" : "a) CS 221 b) Any two of: CS 223A, 223B, 224M, 224N, 226, 227, 228, 229 c) One additional course from category (b) or the following: CS 124, 205A, 222, 224S, 224U, 224W, 225A 225B, 227B, 262, 276, 277, 279, 321, 323, 326A, 327A, 329 (with advisor approval), 374, 379 (with advisor approval); EE 263, 376A; Eng 205, 209A; MS&E 251, 339, 351; Stat 315A, 315B d) Track Electives: At least three additional courses selected from (b), (c), the general CS electives list10, or the following: CS 275, 278; EE 364A, 364B; Econ 286; MS&E 252, 352, 355; Phil 152; Psych 202, 204A, 204B; Stat 200, 202, 205"
-								}
-							},{	"Biocomputation" :
+								},
+							"Biocomputation" :
 								{	"classes": ["CS121", "CS124", "CS145", "CS147", "CS148", "CS221", "CS228", "CS229", "CS231A", "CS248", "CS262", "CS270", "CS273A", "CS274", "CS275", "CS278", "CS279", "BioE101"],
 									"about": "a) One of: CS 121 or 221, 228, 229, 231A b) One of: CS262, 270, 273A, 274, 275, 278, 279 c) One of (if not selected above) CS 121 OR 221, 228, 229, 231A, 262, 270, 273A, 274, 275, 278, 279, 124, 145, 147, 148, 248 d) One course selected from either BMC Informatics electives list, BioE101, or general CS electives list e) One course from BMC Informatics list f) One course from either BMC Informatics, Cellular/Molecular, or Organs/Organisms electives lists g) One course from either BMC Cellular/Molecular or Organs/Organisms electives lists"
-								}
-							},{	"Computer Engineering" :
+								},
+							"Computer Engineering" :
 								{	"classes": ["AA278", "CS140", "CS143", "CS144", "CS149", "CS205A", "CS240", "CS240E", "CS223A", "CS244", "CS244B", "CS244E", "CS249A", "CS249B", "EE108A", "EE108B", "EE101A", "EE101B", "EE102A", "EE102B", "EE109", "EE179", "EE271", "EE273", "EE276", "EE282", "ENGR205", "ENGR206", "ENGR207A", "ENGR207B", "ME201"],
 									"about": "a) EE 108A EE 108B b) Two courses selected from the following: EE 101A, 101B, 102A, 102B c) Satisfy the requirements of one of the following concentrations: Digital Systems Concentration: CS 140 or 142; EE 109, 271; plus two of: CS140 or 142 (if not counted above), 144, 149, 240E, 244; EE273, 282 Robotics and Mechatronics Concentration: CS 205A, 223A; ME 210, ENGR105 plus one of: AA 278; CS 225A, 225B, 231A, 277; ENGR 205, 206, 207A, 207B Networking Concentration: CS140, 144 plus three of: CS 240, 240E, 244, 244B, 244E, 249A, 249B; EE 178, 276"
-								} 
-							},{	"Graphics" :
+								}, 
+							"Graphics" :
 								{	"classes": ["ARTSTUDI160", "ARTSTUDI170", "ARTSTUDI179", "CME104", "CME108", "CME302", "CME306", "CS48N", "CS148", "CS164", "CS178", "CS205A", "CS205B", "CS231A", "CS268", "CS248", "CS348A", "CS348B", "CS448", "CS478",  "EE262", "EE264", "EE278", "EE368", "Math52", "Math113", "ME101", "PSYCH30", "PSYCH221"],
 									"about": "a) CS 148, 248 b) Any one of: CS 205A; CME 104, 108; Math 52, 113 c) Any two of: CS 164, 178, 205B, 231A, 268, 348A, 348B, 448, 478 d) Track Electives: At least two additional courses selected from (b), (c), the general CS electives list, or the following: ARTSTUDI 160, 170, 179; CS 48N; CME 302, 306; EE 262, 264, 278, 368; ME 101; PSYCH 30, 221"
-								}
-							},{	"Human Computer Interaction" :
+								},
+							"Human Computer Interaction" :
 								{	"classes": ["ARTSTUDI160", "COMM169", "CS108", "CS124", "CS140", "CS142", "CS147", "CS148", "CS210A", "CS221", "CS229", "CS247", "CS249A", "CS376", "CS377", "CS378", "CS447", "CS448B", "CS476A", "ME101", "ME115A", "ME115B", "ME116", "PSYCH30", "PSYCH45", "PSYCH50", "PSYCH55", "PSYCH70", "PSYCH131", "PSYCH154", "PSYCH252"],
 									"about": "a) CS 147 b) Any one of: CS 247, 377, 448B, 210A c) Any one of: PSYCH 30, 45, 50, 55, 70, 131, 154, 252; ME 101, 116; or any MS&E 18* d) Any one of: CS 108, 124, 140, 142, 221, 229, 249A e) Any one of: CS 148, 376, 378, 447 f) Track Electives - At least two additional courses selected from (b), (c), (d), (e), the general CS electives list (see Note 9 below), or the following: ARTSTUDI 160; COMM 169; CS 476A; ME 115A ME 115B"
-								}
-							},{	"Information" :
+								},
+							"Information" :
 								{	"classes": ["CS124", "CS140", "CS142", "CS145", "CS224N", "CS224S", "CS224W", "CS229", "CS245", "CS246", "CS262", "CS270", "CS274", "CS276", "CS341", "CS345", "CS346", "CS347", "CS364B"],
 									"about": "a) CS 124, 145 b) Two courses, which must be from different areas below: i. Information-based AI applications: CS 224N, 224S, 229 ii. Database and Information Systems: CS 140, 142, 245, 246, 341, 345, 346, 347 iii .Information Systems in Biology: CS262, 270, 274 iv. Information Systems on the Web: CS 224W, 276, 364B c) At least three additional courses selected from (b) or the general CS electives list (see Note below)"
-								}
-							},{	"Systems" :
+								},
+							"Systems" :
 								{	"classes": ["CS140", "CS143", "CS144", "CS145", "CS149", "CS155", "CS240", "CS 240E", "CS242", "CS243", "CS244", "CS244C", "CS244E", "CS245", "CS315A", "CS315B", "CS341", "CS343", "CS344", "CS344E", "CS345", "CS346", "CS347", "CS349", "CS448", "EE108B", "EE271", "EE282", "EE382A", "EE382C", "EE384A", "EE384B", "EE384C", "EE384S", "EE384X", "EE384Y"],
 									"about": "a) CS 140 b) One of: CS 143 or EE 108B c) Two additional courses from category (b) or the following: CS 144, 145, 149, 155, 240, 242, 243, 244, 245; EE 271, 282 d) Track Electives: At least three additional courses selected from (c), the general CS electives list (see Note below), or the following: CS 240E, 244C, 244E, 315A, 315B, 341, 343, 344, 344E, 345, 346, 347, 349 (with advisor approval), 448; EE 382A, 382C, 384A, 384B, 384C, 384S, 384X, 384Y"
-								}
-							},{	"Theory" :
+								},
+							"Theory" :
 								{	"classes": ["CME302", "CME305", "CS143", "CS154", "CS155", "CS157", "CS164", "CS167", "CS205A", "CS228", "CS242", "CS254", "CS255", "CS258", "CS259", "CS261", "CS262", "CS265", "CS268", "CS354", "CS355", "CS357", "CS358", "CS359", "CS361A", "CS361B", "CS364A", "CS364B", "CS369", "CS374", "MS&E310", "PHIL151", "PHIL152"],
 									"about": "a) CS 154 b) Any one of: CS 164, 167, 255, 258, 261, 265, 268, 361A, 361B c) Two additional courses from category (b) or the following: CS 143, 155, 157 or Phil 151, 205A, 228, 242, 254, 259, 262, 354, 355, 357, 358, 359 (with advisor approval), 364A, 364B, 369 (with advisor approval), 374; MS&E 310 d) Track Electives: At least three additional courses selected from (b), (c), the general CS electives list (see Note below), or the following: CME 302, 305; Phil 152"
-								}
-							},{	"Unspecialized" :
+								},
+							"Unspecialized" :
 								{	"classes": ["CS121", "CS140", "CS143", "CS144", "CS145", "CS147", "CS148", "CS154", "CS155", "CS221", "CS223A", "CS228", "CS229", "CS231A", "CS242", "CS244", "CS248", "CS262", "EE108B"],
 									"about": "a) CS 154 b) Any one of: CS 140, 143 c) One additional course from (b) or the following: CS 144, 155, 242, 244; EE 108B d) Any one of: CS 121 or 221, 223A, 228, 229, 231A e) Any one of: CS 145, 147, 148, 248, 262 f) At least two courses from the general CS electives list (see Note below)"
 								}
-							}
-						]
+						}
+						
 					}
 				]
 			}

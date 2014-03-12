@@ -14,11 +14,7 @@ exports.viewCategory = function(req,res){
     if(requirement == "University"){
         major = "Buffer";
     }
-    console.log(major);
-    console.log(requirement);
-    console.log(req.params.requirement);
-    console.log(req.params);
-    console.log(category);
+
     var requirements = data['requirements'];
     console.log(requirements);
     var requirements = data['requirements'][requirement];
@@ -28,11 +24,13 @@ exports.viewCategory = function(req,res){
     //console.log(requirements);
     req.session.current_category = category;
     req.session.current_requirement = requirement;
+    var track = req.session.track;
 
     var classes_in_category;
     var class_electives;
     var about;
     var miniDescription;
+    var on_specialization = false;
 
     for(var i=0; i<requirements.length; i++){
       var obj = requirements[i];
@@ -40,12 +38,11 @@ exports.viewCategory = function(req,res){
         class_electives = obj.electives;
         miniDescription = obj.miniDescription;
         if(category == "Specialization"){
-          track = req.session.track;
-          console.log("Track");
           console.log(track);
-          console.log(obj.specializations.track);
-          about = obj.specializations["Artificial Intelligence"]["about"];
-          classes_in_category = obj.specializations["Artificial Intelligence"]["classes"];
+          // console.log(obj.specializations.track);
+          on_specialization = track;
+          about = obj.specializations[track]["about"];
+          classes_in_category = obj.specializations[track]["classes"];
         }else{
           about = obj.about;
           classes_in_category = obj.classes;
@@ -72,7 +69,8 @@ exports.viewCategory = function(req,res){
       "about" : about,
       "current_classes" : current_classes,
       "on_elective" : false,
-      "miniDescription" : miniDescription
+      "miniDescription" : miniDescription,
+      "on_specialization" : on_specialization
     });
   }
 }

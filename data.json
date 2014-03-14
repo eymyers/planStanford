@@ -7,7 +7,7 @@
 	"Computer Science" : { 
       "tracks" : [
       	{
-      		"name":"Artifical Intelligence",
+      		"name":"Artificial Intelligence",
       		"id":"AI"
       	},{
       		"name":"Biocomputation",

@@ -1,8 +1,7 @@
 {
 	"majors" : 
 		[ 
-			{"name" : "Computer Science", "id" : "CS"},
-			{ "name" : "Electrical Engineering", "id" : "EE"}
+			{"name" : "Computer Science", "id" : "CS"}
 		],
 	
 	"Computer Science" : { 
@@ -190,6 +189,48 @@
   		"Major" : {
   			"2014" : {
   				"Categories" : ["Math","Science","Technology in Society","Engineering Fundamental","Writing in the Major", "Core", "Specialization", "Senior Project"],
+  				"Electrical Engineering" : [
+  					{
+  						"name" : "Math",
+  						"classes" : ["MATH41","MATH42","MATH51","MATH52","CME100","CME104","MATH53","CME102","EE178","STATS116","MATH151","CME106"],
+  						"electives" : [],
+  						"about" : "MATH 41, 42; (MATH 51 AND 52) OR (CME 100 AND CME 104); MATH 53 OR CME 102; EE178 [PREFERRED] OR STATS 116 OR MATH 151 OR CME 106",
+  						"miniDescription" : "A minimum of 45 units of mathematics and science combined are required,including the following required courses.",
+  						"unitsRequired" : 45
+  					},
+  					{
+  						"name" : "Science",
+  						"classes" : ["PHYSICS41","PHYSICS42"],
+  						"electives" : ["PHYSICS61","PHYSICS63"],
+  						"about" : "Phys 45 or 65 is strongly recommended for those pursuing the Fields and Waves or the Solid State and Photonic Devices specialties. Substitutions require approval of the advisor, department, and Dean’s Office.",
+  						"miniDescription" : "A minimum of 12 science units is required.",
+  						"unitsRequired" : 12
+  					},
+  					{ 
+						"name" : "Technology in Society",
+						"classes" : ["STS101","STS201","ENGR130","STS101Q","STS110","MS&E197","STS112","STS115","STS180","COMM120","COMM220","COMM169","CS181","CS181W","ENGR145","HUMBIO174","MS&E181", "MS&E193","PUBLPOL\n194"],
+						"electives" : "",
+						"about" : "One course, 3-5 units",
+						"miniDescription" : "One Course Required",
+						"unitsRequired" : "One Class"
+					},
+					{
+						"name" : "Engineering Fundamental",
+						"classes" : ["CS106B","CS106X"],
+						"electives" : ["AA272C","AA278","APPPHYS207","APPPHYS208","APPPHYS226","APPPHYS227","APPPHYS272","APPPHYS273","CS107","CS108","CS110","CS140","CS143","CS144","CS145","CS148","CS194","CS205A","CS221","CS223B","CS228","CS229","CS240","CS242","CS248","CS255","ENGR105","ENGR205","ENGR206","ENGR207A","ENGR207B","ENGR209A","ENGR209B","ENGR210B","ENGR240","GEOPHYS140","MATSCI199","MATSCI209","MATSCI323","MATSCI347","ME358","MS&E237","MS&E246","MS&E251"],
+						"about" : "Programming Abstractions (or Accelerated version); required.  2 from approved list (one from ENGR 40, ENGR 40N, or ENGR 40P recommended; CS 106A not allowed).",
+						"miniDescription" : "Total Engineering Topics Units: 68 units (Fundamentals + Core + EE Specialty + Electives)",
+						"unitsRequired" : 3
+					},
+					{
+						"name" : "Core",
+						"classes" : ["EE101A","EE101B","EE102A","EE102B","EE108A","EE108B","ENGR102E","EE41","EE100"],
+						"electives" : ["EE101X"],
+						"about" : "",
+						"miniDescription" : "Total Engineering Topics Units: 68 units (Fundamentals + Core + EE Specialty + Electives)",
+						"unitsRequired" : 3
+					}
+  				],
   				"Computer Science" : [
 		  			{
 		  				"name" : "Math",
